@@ -32,9 +32,21 @@ You can download and run Windows Locker as a standalone Windows application:
 
 See [README_WINDOWS.md](windows/README_WINDOWS.md) for build and installation instructions.
 
----
 
----
+## 📦 GitHub Releases & Packages
+
+### Releases
+Download the latest Windows Locker executable and assets from the GitHub Releases page:
+
+**[Go to Releases](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases)**
+
+### Packages
+Publish and share Python packages for Windows Locker using GitHub Packages or PyPI:
+
+**[Go to Packages](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/packages)**
+
+See [GitHub documentation](https://docs.github.com/en/packages) for publishing instructions.
+
 
 ## 📋 Overview
 
