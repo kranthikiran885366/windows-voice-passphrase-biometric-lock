@@ -80,7 +80,13 @@ Sivaji is a complete computer security system that:
 
 <div align="center">
 
-### 1. Install Dependencies
+
+### 1. Install Release Dependencies (Recommended for Users)
+```bash
+pip install -r requirements-release.txt
+```
+
+### For Developers & Contributors
 ```bash
 pip install -r requirements.txt
 ```
