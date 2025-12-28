@@ -50,12 +50,12 @@ See [README_WINDOWS.md](windows/README_WINDOWS.md) for platform-specific install
 ### Releases
 Download the latest Windows Locker executable and assets from the GitHub Releases page:
 
-**[Go to Releases](https://github.com/kranthikiran885366/voice-based-system-unlock/releases)**
+**[Go to Releases](https://github.com/kranthikiran885366/windows-voice-passphrase-biometric-lock/releases)**
 
 ### Packages
 Publish and share Python packages for Windows Locker using GitHub Packages or PyPI:
 
-**[Go to Packages](https://github.com/kranthikiran885366/voice-based-system-unlock/packages)**
+**[Go to Packages](https://github.com/kranthikiran885366/windows-voice-passphrase-biometric-lock/packages)**
 
 See [GitHub documentation](https://docs.github.com/en/packages) for publishing instructions.
 
