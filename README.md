@@ -1,6 +1,11 @@
-# Sivaji AI Security System - Advanced Voice Biometric Authentication
+# Windows Voice Authentication | Voice Biometric Security System | Admin Controlled Voice Lock
+
 
 <div align="center">
+
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![Offline](https://img.shields.io/badge/Mode-Offline-green)
+![Security](https://img.shields.io/badge/Focus-Security-red)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -18,13 +23,21 @@
 </div>
 
 
+
 <p align="center">
-  <strong>Enterprise-grade AI voice biometric authentication system with quantum-resistant security and multi-modal biometric fusion.</strong>
+  <strong>Windows voice authentication and voice biometric security system for admin controlled voice lock and offline voice recognition on Windows.</strong>
 </p>
 
 <p align="center">
-  Next-generation security platform featuring advanced speaker recognition, real-time deepfake detection, behavioral analytics, and zero-trust architecture with military-grade encryption.
+  Next-generation security platform featuring advanced speaker recognition, real-time deepfake detection, behavioral analytics, and zero-trust architecture with military-grade encryption. This system provides offline voice recognition for Windows and admin-trained user access.
 </p>
+
+---
+
+<!-- SEO META TAGS FOR HTML DOCS -->
+<meta name="description" content="Windows voice-based biometric authentication system with admin-trained user access and offline security">
+<meta name="keywords" content="Windows voice authentication, voice biometric lock, admin controlled security, offline voice recognition Windows">
+<!-- END META TAGS -->
 
 ---
 
