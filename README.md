@@ -1,5 +1,7 @@
 # Sivaji Security System - AI Voice Authentication with Developer Fail-Safe
 
+<div align="center">
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org/)
@@ -9,7 +11,15 @@
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-blue.svg)](https://www.microsoft.com/windows/)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)](#)
 
-A production-grade, cinematic AI voice biometric authentication system with emergency developer fail-safe mechanism. Inspired by the Sivaji movie security interface, featuring military-grade speaker recognition with real-time liveness detection, Windows integration, and zero-knowledge voice storage.
+</div>
+
+<p align="center">
+  <strong>A production-grade, cinematic AI voice biometric authentication system with emergency developer fail-safe mechanism.</strong>
+</p>
+
+<p align="center">
+  Inspired by the Sivaji movie security interface, featuring military-grade speaker recognition with real-time liveness detection, Windows integration, and zero-knowledge voice storage.
+</p>
 
 ## Overview
 
@@ -21,44 +31,54 @@ Sivaji is a complete computer security system that:
 - Integrates with Windows 10/11 login
 - Offers cinematic UI with Sivaji-movie aesthetic
 
-## Features
+## 🚀 Features
 
-✅ **Voice Biometric Authentication** - MFCC + CNN+LSTM Deep Learning speaker recognition  
-✅ **Liveness Detection** - Real-time pitch, frequency, and temporal variance analysis  
-✅ **Developer Fail-Safe** - Emergency access mechanism (multi-layer authentication)  
-✅ **AES-256 Encryption** - All biometric data encrypted with Fernet key management  
-✅ **Cinematic UI** - Full-screen PyQt5 lockscreen with animated waveforms  
-✅ **Sivaji-Style Voice Bot** - Authoritative, offline TTS responses  
-✅ **Windows Integration** - Pre-login lock screen on Windows 10/11  
-✅ **Audit Logging** - Encrypted timestamped access logs  
-✅ **Security Escalation** - Auto-lockout after 3 failed attempts  
-✅ **Multi-Biometric** - Optional face and iris recognition
+<div align="center">
 
-## Quick Start
+| Feature | Status | Description |
+|---------|:------:|-------------|
+| **Voice Biometric Authentication** | ✅ | MFCC + CNN+LSTM Deep Learning speaker recognition |
+| **Liveness Detection** | ✅ | Real-time pitch, frequency, and temporal variance analysis |
+| **Developer Fail-Safe** | ✅ | Emergency access mechanism (multi-layer authentication) |
+| **AES-256 Encryption** | ✅ | All biometric data encrypted with Fernet key management |
+| **Cinematic UI** | ✅ | Full-screen PyQt5 lockscreen with animated waveforms |
+| **Sivaji-Style Voice Bot** | ✅ | Authoritative, offline TTS responses |
+| **Windows Integration** | ✅ | Pre-login lock screen on Windows 10/11 |
+| **Audit Logging** | ✅ | Encrypted timestamped access logs |
+| **Security Escalation** | ✅ | Auto-lockout after 3 failed attempts |
+| **Multi-Biometric** | ✅ | Optional face and iris recognition |
+
+</div>
+
+## 🚀 Quick Start
+
+<div align="center">
 
 ### 1. Install
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ### 2. Setup Developer Fail-Safe (First Time Only)
-\`\`\`bash
+```bash
 python main.py --mode setup-developer-secret
 # Enter a secure 12+ character secret
-\`\`\`
+```
 
 ### 3. Enroll Your Voice
-\`\`\`bash
+```bash
 python main.py --mode enroll --username "authorized_user"
 # Speak 5 prompted sentences
-\`\`\`
+```
 
 ### 4. Authenticate
-\`\`\`bash
+```bash
 python main.py
 # Speak the random sentence
 # Access granted in ~1.5 seconds
-\`\`\`
+```
+
+</div>
 
 ## Developer Fail-Safe System
 
@@ -204,14 +224,18 @@ python main.py --mode test                         # Run diagnostics
 - **WINDOWS_INTEGRATION.md** - Windows setup, registry modifications
 - **FUTURE_ENHANCEMENTS.md** - Planned features, research directions
 
-## Performance Metrics
+## 📊 Performance Metrics
 
-| Metric | Target | Achieved |
-|--------|--------|----------|
-| Authentication Time | <2s | ~1.2-1.5s |
-| Accuracy | ≥98% | 98.5%+ |
-| False Acceptance | <0.5% | ~0.2% |
-| False Rejection | <2% | ~1.5% |
+<div align="center">
+
+| Metric | Target | Achieved | Status |
+|--------|:------:|:--------:|:------:|
+| Authentication Time | <2s | ~1.2-1.5s | ✅ |
+| Accuracy | ≥98% | 98.5%+ | ✅ |
+| False Acceptance | <0.5% | ~0.2% | ✅ |
+| False Rejection | <2% | ~1.5% | ✅ |
+
+</div>
 
 ## Security Highlights
 

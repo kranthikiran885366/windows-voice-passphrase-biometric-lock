@@ -22,37 +22,30 @@ class Avatar3DWidget(QGLWidget):
     
     def __init__(self, parent=None):
         """Initialize 3D avatar widget"""
-        super().__init__(parent)
-        
+        from PyQt5.QtOpenGL import QGLFormat
+        fmt = QGLFormat()
+        fmt.setVersion(2, 1)
+        fmt.setProfile(QGLFormat.CoreProfile)
+        super().__init__(fmt, parent)
         # Avatar state
         self.state = "neutral"
         self.animation_time = 0
         self.animation_speed = 0.05
-        
         # Rotation angles (head movement)
         self.head_rotation_x = 0
         self.head_rotation_y = 0
         self.head_rotation_z = 0
-        
         # Eye parameters
         self.left_eye_blink = 0  # 0 to 1
         self.right_eye_blink = 0
         self.eye_rotation_x = 0
         self.eye_rotation_y = 0
-        
         # Color state
         self.state_color = [0.0, 1.0, 1.0]  # Cyan default
-        
         # Animation timer
         self.animation_timer = QTimer()
         self.animation_timer.timeout.connect(self.update)
         self.animation_timer.start(16)  # 60 FPS
-        
-        # Setup OpenGL
-        fmt = QSurfaceFormat()
-        fmt.setVersion(2, 1)
-        fmt.setProfile(QSurfaceFormat.CoreProfile)
-        self.setFormat(fmt)
     
     def initializeGL(self):
         """Initialize OpenGL settings"""
