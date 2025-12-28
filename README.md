@@ -1,4 +1,4 @@
-# Sivaji Security System - AI Voice Authentication with Developer Fail-Safe
+# Windows Locker - AI Voice Authentication with Developer Fail-Safe
 
 <div align="center">
 
@@ -13,13 +13,26 @@
 
 </div>
 
+
 <p align="center">
   <strong>A production-grade, cinematic AI voice biometric authentication system with emergency developer fail-safe mechanism.</strong>
 </p>
 
 <p align="center">
-  Inspired by the Sivaji movie security interface, featuring military-grade speaker recognition with real-time liveness detection, Windows integration, and zero-knowledge voice storage.
+  Inspired by cinematic security interfaces, featuring military-grade speaker recognition with real-time liveness detection, Windows integration, and zero-knowledge voice storage.
 </p>
+
+---
+
+## 🖥️ Windows Executable (.exe)
+
+You can download and run Windows Locker as a standalone Windows application:
+
+**[Download Windows Locker (.exe) from GitHub Releases](YOUR_GITHUB_RELEASE_LINK_HERE)**
+
+See [README_WINDOWS.md](windows/README_WINDOWS.md) for build and installation instructions.
+
+---
 
 ---
 
@@ -167,10 +180,10 @@ System announces: *"Developer override authenticated. Emergency access granted."
 ## 📁 Project Structure
 
 ```
-sivaji-security-system/
+windows-locker/
 ├── main.py                              # Entry point
 ├── requirements.txt                     # Dependencies
-├── README.md                            # This file
+├── README.md                            # Main documentation
 │
 ├── security/
 │   ├── developer_failsafe.py           # Developer fail-safe system
@@ -213,7 +226,8 @@ sivaji-security-system/
 ├── windows/
 │   ├── windows_integration.py         # Registry setup
 │   ├── startup_script.py              # Pre-login execution
-│   └── README_WINDOWS.md              # Windows guide
+│   ├── README_WINDOWS.md              # Windows build & install guide
+│   └── app_icon.ico                   # Windows app icon
 │
 ├── docs/
 │   ├── DEVELOPER_OVERRIDE.md          # Fail-safe documentation

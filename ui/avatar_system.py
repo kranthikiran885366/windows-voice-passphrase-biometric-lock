@@ -1,5 +1,5 @@
 """
-3D Animated Avatar System for Sivaji Security
+3D Animated Avatar System for Security
 Provides cinematic feedback during authentication
 Uses OpenGL-based 3D rendering
 """

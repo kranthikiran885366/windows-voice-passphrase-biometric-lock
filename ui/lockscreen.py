@@ -1,5 +1,5 @@
 """
-Main Lockscreen UI - Sivaji Security System
+Main Lockscreen UI - Security System
 Full-screen authentication interface with voice input
 """
 
@@ -21,20 +21,20 @@ from ui.avatar_system import Avatar3DWidget
 from voice_auth.verification_pipeline import VerificationPipeline
 from security.lockout_manager import LockoutManager
 from security.audit_logger import AuditLogger
-from voice_bot.tts_engine import SivajiTTS
+from voice_bot.tts_engine import TTS
 from security.threat_detection import ThreatDetectionEngine
 from security.notification_system import NotificationSystem
 from voice_auth.passive_authentication import PassiveAuthenticationMonitor
 from security.developer_failsafe import DeveloperFailsafeManager  # Import DeveloperFailsafeManager
 
 
-class SivajiLockscreen(QMainWindow):
+class MainLockscreen(QMainWindow):
     """Main authentication lockscreen with multi-biometric support"""
     
     # Authentication sentences
     AUTH_SENTENCES = [
         "The quick brown fox jumps over the lazy dog",
-        "Sivaji is the most advanced security system ever created",
+        "This is the most advanced security system ever created",
         "My voice is my password and my identity",
         "Authentication complete and system is now accessible",
         "Unauthorized users will be denied immediate access",
@@ -50,7 +50,7 @@ class SivajiLockscreen(QMainWindow):
         self.verifier = VerificationPipeline()
         self.lockout = LockoutManager()
         self.audit = AuditLogger()
-        self.tts = SivajiTTS()
+        self.tts = TTS()
         self.threat_detector = ThreatDetectionEngine()
         self.notification_system = NotificationSystem()
         self.passive_auth = PassiveAuthenticationMonitor()
@@ -70,7 +70,7 @@ class SivajiLockscreen(QMainWindow):
         self.failsafe_active = False  # Track fail-safe state
         
         # Setup UI
-        self.setWindowTitle("SIVAJI SECURITY SYSTEM")
+        self.setWindowTitle("Windows Locker")
         self.setStyleSheet(STYLESHEET)
         self.setup_ui()
         
@@ -86,117 +86,110 @@ class SivajiLockscreen(QMainWindow):
         self.show_authentication_screen()
     
     def setup_ui(self):
-        """Setup main UI layout with optional avatar"""
+        """Setup main UI layout with optional avatar and modern glass panel"""
         central = QWidget()
         self.setCentralWidget(central)
-        
+
         main_layout = QHBoxLayout()
-        
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.setSpacing(0)
+
         # Left side: Avatar (optional)
-        if True:  # Always include avatar area for future expansion
-            left_layout = QVBoxLayout()
-            self.avatar = Avatar3DWidget()
-            self.avatar.setMinimumSize(400, 600)
-            left_layout.addWidget(self.avatar)
-            left_layout.setAlignment(self.avatar, Qt.AlignCenter)
-            main_layout.addLayout(left_layout, 1)
-        
-        # Right side: Authentication UI
-        right_layout = QVBoxLayout()
-        right_layout.setSpacing(30)
-        right_layout.setContentsMargins(50, 50, 50, 50)
-        
+        left_layout = QVBoxLayout()
+        left_layout.setContentsMargins(0, 0, 0, 0)
+        left_layout.setSpacing(0)
+        self.avatar = Avatar3DWidget()
+        self.avatar.setMinimumSize(400, 600)
+        left_layout.addStretch()
+        left_layout.addWidget(self.avatar, alignment=Qt.AlignCenter)
+        left_layout.addStretch()
+        main_layout.addLayout(left_layout, 1)
+
+        # Right side: Authentication UI in a glassmorphism panel
+        right_outer_layout = QVBoxLayout()
+        right_outer_layout.setContentsMargins(0, 0, 0, 0)
+        right_outer_layout.setSpacing(0)
+        right_outer_layout.addStretch()
+
+        glass_panel = QWidget()
+        glass_panel.setObjectName("glassPanel")
+        glass_panel.setProperty("class", "glass-panel")
+        panel_layout = QVBoxLayout()
+        panel_layout.setSpacing(18)
+        panel_layout.setContentsMargins(40, 40, 40, 40)
+
         # Title
-        title = QLabel("SIVAJI")
+        title = QLabel("Windows Locker")
         title.setObjectName("titleLabel")
         title.setAlignment(Qt.AlignCenter)
-        right_layout.addWidget(title)
-        
+        panel_layout.addWidget(title)
+
         # Subtitle
         subtitle = QLabel("VOICE BIOMETRIC AUTHENTICATION")
-        subtitle.setFont(QFont("Arial", 14))
-        subtitle.setStyleSheet("color: #7c3aed; letter-spacing: 2px;")
+        subtitle.setFont(QFont("Arial", 16, QFont.Bold))
+        subtitle.setStyleSheet("color: #7c3aed; letter-spacing: 2px; margin-bottom: 8px;")
         subtitle.setAlignment(Qt.AlignCenter)
-        right_layout.addWidget(subtitle)
-        
-        # Spacer
-        right_layout.addSpacing(40)
-        
+        panel_layout.addWidget(subtitle)
+
         # Status label
         self.status_label = QLabel("INITIALIZING SYSTEM...")
         self.status_label.setObjectName("statusLabel")
         self.status_label.setAlignment(Qt.AlignCenter)
-        right_layout.addWidget(self.status_label)
-        
+        panel_layout.addWidget(self.status_label)
+
         # Sentence to speak
         self.sentence_label = QLabel()
         self.sentence_label.setObjectName("sentenceLabel")
         self.sentence_label.setAlignment(Qt.AlignCenter)
         self.sentence_label.setWordWrap(True)
-        right_layout.addWidget(self.sentence_label)
-        
+        panel_layout.addWidget(self.sentence_label)
+
         # Waveform visualization
         self.waveform = WaveformWidget()
-        right_layout.addWidget(self.waveform)
-        
+        panel_layout.addWidget(self.waveform)
+
         # Confidence display
         self.confidence_label = QLabel()
         self.confidence_label.setObjectName("statusIndicator")
         self.confidence_label.setAlignment(Qt.AlignCenter)
-        right_layout.addWidget(self.confidence_label)
-        
+        panel_layout.addWidget(self.confidence_label)
+
         # Microphone indicator
         self.mic_label = QLabel("🎤")
         self.mic_label.setObjectName("micLabel")
         self.mic_label.setAlignment(Qt.AlignCenter)
-        right_layout.addWidget(self.mic_label)
-        
+        panel_layout.addWidget(self.mic_label)
+
         # Message
         self.message_label = QLabel()
         self.message_label.setObjectName("messageLabel")
         self.message_label.setAlignment(Qt.AlignCenter)
-        right_layout.addWidget(self.message_label)
-        
+        panel_layout.addWidget(self.message_label)
+
         # Buttons
         button_layout = QHBoxLayout()
         button_layout.addStretch()
-        
         self.start_button = QPushButton("START AUTHENTICATION")
-        self.start_button.setFont(QFont("Arial", 12, QFont.Bold))
-        self.start_button.setStyleSheet("""
-            QPushButton {
-                background-color: #7c3aed;
-                color: white;
-                padding: 12px 30px;
-                border: 2px solid #00d9ff;
-                border-radius: 5px;
-                font-weight: bold;
-            }
-            QPushButton:hover {
-                background-color: #6b2fb5;
-                border-color: #00ffff;
-            }
-            QPushButton:pressed {
-                background-color: #5c27a0;
-            }
-        """)
+        self.start_button.setFont(QFont("Arial", 16, QFont.Bold))
         self.start_button.clicked.connect(self.start_authentication)
         button_layout.addWidget(self.start_button)
-        
         button_layout.addStretch()
-        right_layout.addLayout(button_layout)
-        
+        panel_layout.addLayout(button_layout)
+
+        # Threat level
         self.threat_level_label = QLabel("THREAT: LOW")
-        self.threat_level_label.setFont(QFont("Arial", 10))
-        self.threat_level_label.setStyleSheet("color: #00ff66;")
-        right_layout.addWidget(self.threat_level_label)
-        
-        # Add spacer at bottom
-        right_layout.addStretch()
-        
-        main_layout.addLayout(right_layout, 1)
+        self.threat_level_label.setFont(QFont("Arial", 12, QFont.Bold))
+        self.threat_level_label.setStyleSheet("color: #00ff66; margin-top: 8px;")
+        self.threat_level_label.setAlignment(Qt.AlignCenter)
+        panel_layout.addWidget(self.threat_level_label)
+
+        glass_panel.setLayout(panel_layout)
+        right_outer_layout.addWidget(glass_panel, alignment=Qt.AlignCenter)
+        right_outer_layout.addStretch()
+
+        main_layout.addLayout(right_outer_layout, 1)
         central.setLayout(main_layout)
-        
+
         # Timer for voice recording simulation
         self.record_timer = QTimer()
         self.record_timer.timeout.connect(self.simulate_voice_capture)
@@ -427,6 +420,6 @@ class SivajiLockscreen(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    lockscreen = SivajiLockscreen(failsafe_manager=DeveloperFailsafeManager())  # Initialize with DeveloperFailsafeManager
+    lockscreen = MainLockscreen(failsafe_manager=DeveloperFailsafeManager())  # Initialize with DeveloperFailsafeManager
     lockscreen.show()
     sys.exit(app.exec_())
