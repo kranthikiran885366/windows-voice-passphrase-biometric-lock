@@ -23,38 +23,34 @@ def create_speaker_recognition_model(input_shape=(13, 50), num_speakers=1):
     model = keras.Sequential([
         # Input: (batch, 13, 50, 1)
         layers.Input(shape=input_shape + (1,)),
-        
         # CNN Blocks for spectro-temporal feature extraction
         layers.Conv2D(32, (3, 3), activation='relu', padding='same'),
         layers.BatchNormalization(),
         layers.MaxPooling2D((2, 2)),
-        
         layers.Conv2D(64, (3, 3), activation='relu', padding='same'),
         layers.BatchNormalization(),
         layers.MaxPooling2D((2, 2)),
-        
         layers.Conv2D(128, (3, 3), activation='relu', padding='same'),
         layers.BatchNormalization(),
-        
         # Reshape for LSTM
         layers.Reshape((-1, 128)),  # (batch, time, features)
-        
         # LSTM for temporal dynamics
         layers.LSTM(256, return_sequences=True),
         layers.Dropout(0.3),
         layers.LSTM(128),
         layers.Dropout(0.3),
-        
         # Speaker embedding (512-dim vector)
         layers.Dense(512, activation='relu', name='speaker_embedding'),
         layers.BatchNormalization(),
-        
         # Classification head
         layers.Dense(256, activation='relu'),
         layers.Dropout(0.3),
         layers.Dense(num_speakers + 1, activation='softmax', name='speaker_classification')
     ])
-    
+    # Build model by calling it once with dummy input
+    import numpy as np
+    dummy_input = np.zeros((1,) + input_shape + (1,), dtype=np.float32)
+    model(dummy_input)
     return model
 
 

@@ -25,7 +25,7 @@ from voice_bot.tts_engine import SivajiTTS
 from security.threat_detection import ThreatDetectionEngine
 from security.notification_system import NotificationSystem
 from voice_auth.passive_authentication import PassiveAuthenticationMonitor
-from security.failsafe_manager import FailsafeManager  # Import FailsafeManager
+from security.developer_failsafe import DeveloperFailsafeManager  # Import DeveloperFailsafeManager
 
 
 class SivajiLockscreen(QMainWindow):
@@ -427,6 +427,6 @@ class SivajiLockscreen(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    lockscreen = SivajiLockscreen(failsafe_manager=FailsafeManager())  # Initialize with FailsafeManager
+    lockscreen = SivajiLockscreen(failsafe_manager=DeveloperFailsafeManager())  # Initialize with DeveloperFailsafeManager
     lockscreen.show()
     sys.exit(app.exec_())

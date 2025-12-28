@@ -1,11 +1,11 @@
 # Sivaji Security System - Complete Dependencies
 
 # Core ML/Audio Processing
-tensorflow==2.16.1
-torch==2.0.1
+tensorflow>=2.13.0
+torch>=2.0.0
 librosa==0.10.0
-numpy==1.26.0
-scipy==1.11.0
+numpy>=1.24.0
+scipy>=1.10.0
 
 # Audio I/O & Processing
 PyAudio==0.2.13
@@ -15,46 +15,41 @@ soundfile==0.12.1
 PyQt5==5.15.9
 PyQt5-sip==12.13.0
 PyOpenGL==3.1.6
-PyOpenGL-accelerate==3.1.6
 
 # Computer Vision
-opencv-python==4.8.1.78
-opencv-contrib-python==4.8.1.78
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
 
 # Speech & Voice
 SpeechRecognition==3.10.0
 pyttsx3==2.90
 
 # Encryption & Security
-cryptography==41.0.7
-bcrypt==4.1.1
+cryptography>=41.0.0
+bcrypt>=4.0.0
 
 # Data Processing
-pandas==2.1.0
-scikit-learn==1.3.1
-Pillow==10.1.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+Pillow>=10.0.0
 
 # Notifications
-Twilio==8.10.0
+Twilio>=8.0.0
 win10toast==0.9
 
 # System & Utilities
-pyaudio==0.2.13
 python-dotenv==1.0.0
-requests==2.31.0
+requests>=2.31.0
 
 # Windows Integration (Windows only)
-pywin32==305 ; sys_platform == 'win32'
+pywin32>=305 ; sys_platform == 'win32'
 
 # Testing & Debugging
-pytest==7.4.0
-matplotlib==3.8.0
-
-# Additional Security (for PBKDF2, HMAC operations)
-hashlib==0.0.0  # Built-in, included for reference
+pytest>=7.0.0
+matplotlib>=3.7.0
 
 # Logging & Monitoring
-python-json-logger==2.0.7
+python-json-logger>=2.0.0
 
 # Configuration Management
-pyyaml==6.0
+pyyaml>=6.0

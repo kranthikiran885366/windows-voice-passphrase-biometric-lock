@@ -5,40 +5,47 @@ Uses Fernet (symmetric key derivation) for secure key management
 
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import base64
 import os
 from pathlib import Path
 
 
+
 class EncryptionManager:
     """Manage encryption/decryption of sensitive biometric data"""
-    
+
     def __init__(self, master_key_file="security/credentials/.master_key"):
         self.master_key_file = Path(master_key_file)
         self.cipher = None
+        self.key = None
         self._init_master_key()
+
+    def get_encryption_key(self):
+        """
+        Return the Fernet key (32 url-safe base64-encoded bytes) used for encryption.
+        """
+        if self.key is not None:
+            return self.key
+        else:
+            raise ValueError("Encryption key not initialized.")
     
     def _init_master_key(self):
         """Initialize or load master encryption key"""
         self.master_key_file.parent.mkdir(parents=True, exist_ok=True)
-        
         if self.master_key_file.exists():
             # Load existing key
             with open(self.master_key_file, 'rb') as f:
-                key = f.read()
+                self.key = f.read()
         else:
             # Generate new key
-            key = Fernet.generate_key()
-            
+            self.key = Fernet.generate_key()
             # Save key (in production, use key vault)
             with open(self.master_key_file, 'wb') as f:
-                f.write(key)
-            
+                f.write(self.key)
             # Restrict file permissions
             os.chmod(self.master_key_file, 0o600)
-        
-        self.cipher = Fernet(key)
+        self.cipher = Fernet(self.key)
     
     def encrypt_data(self, data):
         """
@@ -75,13 +82,13 @@ class EncryptionManager:
     @staticmethod
     def derive_key_from_password(password, salt=None):
         """
-        Derive encryption key from password using PBKDF2
+        Derive encryption key from password using PBKDF2HMAC
         For advanced implementations
         """
         if salt is None:
             salt = os.urandom(16)
         
-        kdf = PBKDF2(
+        kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
             salt=salt,
