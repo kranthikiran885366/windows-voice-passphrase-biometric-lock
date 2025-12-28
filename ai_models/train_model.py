@@ -232,10 +232,14 @@ def train_model(data_dir="./enrollment_data", epochs=100, batch_size=16, augment
     print(f"[v0]   Recall:    {test_recall*100:.2f}%")
     print(f"[v0]   Loss:      {test_loss:.4f}")
     
-    # Save model
-    model_path = Path('ai_models/models/speaker_recognition.h5')
+    # Save model in new Keras format
+    model_path = Path('ai_models/models/speaker_recognition.keras')
     model_path.parent.mkdir(parents=True, exist_ok=True)
-    model.save(model_path)
+    # Ensure model is built before saving
+    if not model.built:
+        dummy_input = np.zeros((1, 13, 50, 1), dtype=np.float32)
+        model(dummy_input)
+    model.save(model_path, save_format='keras')
     print(f"[v0] Model saved to {model_path}")
     
     # Plot training history

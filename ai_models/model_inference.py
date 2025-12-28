@@ -12,7 +12,15 @@ class ModelInference:
     """Perform inference for speaker recognition"""
     
     def __init__(self, model_path=None):
-        self.model_path = model_path or Path("ai_models/models/speaker_recognition.h5")
+        # Prefer new Keras format, fallback to .h5 if needed
+        keras_path = Path("ai_models/models/speaker_recognition.keras")
+        h5_path = Path("ai_models/models/speaker_recognition.h5")
+        if model_path:
+            self.model_path = Path(model_path)
+        elif keras_path.exists():
+            self.model_path = keras_path
+        else:
+            self.model_path = h5_path
         self.full_model = None
         self.embedding_model = None
         self._load_model()

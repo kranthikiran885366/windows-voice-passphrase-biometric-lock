@@ -58,9 +58,7 @@ class VoiceProcessor:
             n_mfcc=self.n_mfcc,
             n_fft=self.n_fft,
             hop_length=self.hop_length,
-            n_mels=self.n_mels,
-            cepstral_lifter=22,  # Apply liftering for better spectral representation
-            lifterexp=0.6
+            n_mels=self.n_mels
         )
         return mfcc
     
