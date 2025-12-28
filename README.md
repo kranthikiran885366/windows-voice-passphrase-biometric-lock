@@ -28,7 +28,7 @@
 
 You can download and run Windows Locker as a standalone Windows application:
 
-**[Download Windows Locker (.exe) from GitHub Releases](YOUR_GITHUB_RELEASE_LINK_HERE)**
+**[Download Windows Locker (.exe) from GitHub Releases](https://github.com/kranthikiran885366/voice-based-system-unlock/releases)**
 
 See [README_WINDOWS.md](windows/README_WINDOWS.md) for build and installation instructions.
 
@@ -38,12 +38,12 @@ See [README_WINDOWS.md](windows/README_WINDOWS.md) for build and installation in
 ### Releases
 Download the latest Windows Locker executable and assets from the GitHub Releases page:
 
-**[Go to Releases](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases)**
+**[Go to Releases](https://github.com/kranthikiran885366/voice-based-system-unlock/releases)**
 
 ### Packages
 Publish and share Python packages for Windows Locker using GitHub Packages or PyPI:
 
-**[Go to Packages](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/packages)**
+**[Go to Packages](https://github.com/kranthikiran885366/voice-based-system-unlock/packages)**
 
 See [GitHub documentation](https://docs.github.com/en/packages) for publishing instructions.
 
