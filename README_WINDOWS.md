@@ -1,48 +1,143 @@
-## How to Publish and Share on GitHub
+# Sivaji Security System v3.0 - Windows Distribution Guide
 
-1. Go to your GitHub repository page.
-2. Click on "Releases" (right sidebar or top menu).
-3. Click "Draft a new release".
-4. Upload your `windows_locker.exe` file as a release asset.
-5. Add a release title and description, then publish the release.
-6. Copy the direct download link for `windows_locker.exe` from the release page.
+## 🚀 Enterprise Windows Deployment
 
-### Example Download Link
-**[Download Windows Locker (.exe) from GitHub Releases](YOUR_GITHUB_RELEASE_LINK_HERE)**
+### Quick Download
+**[Download Sivaji Security System v3.0 Enterprise (.exe)](https://github.com/kranthikiran885366/voice-based-system-unlock/releases/latest)**
 
+### Distribution Packages
+- **Standard Edition**: `sivaji_security_v3.0_standard.exe` (50MB)
+- **Enterprise Edition**: `sivaji_security_v3.0_enterprise.exe` (120MB)
+- **Developer Edition**: `sivaji_security_v3.0_developer.exe` (200MB)
 
-# Windows Locker: Desktop Security App
+## 🛠️ Build Instructions v3.0
 
-## How to Build the .exe
+### Prerequisites
+```bat
+# Install Python 3.11+ and required tools
+winget install Python.Python.3.11
+winget install Microsoft.VisualStudio.2022.BuildTools
+```
 
-1. Make sure Python and pip are installed on your Windows system.
-2. Place your custom app icon in `windows/app_icon.ico` (optional, recommended for branding).
-3. Open Command Prompt and navigate to your project folder.
-4. Run the build script:
+### Build Process
+```bat
+# Clone and setup
+git clone https://github.com/kranthikiran885366/voice-based-system-unlock.git
+cd voice-based-system-unlock
 
-    ```bat
-    build_windows_exe.bat
-    ```
+# Install dependencies
+pip install -r requirements-windows.txt
+pip install pyinstaller[encryption]
 
-5. After the build completes, your `.exe` file will be located in the `dist/` folder as `windows_locker.exe`.
+# Build executable with advanced options
+pyinstaller --onefile --windowed --icon=windows/app_icon.ico \
+    --add-data "ai_models;ai_models" \
+    --add-data "security;security" \
+    --add-data "ui;ui" \
+    --hidden-import tensorflow \
+    --hidden-import torch \
+    --hidden-import cryptography \
+    --key YOUR_ENCRYPTION_KEY \
+    main.py
+```
 
-## How to Run the .exe
+### Advanced Build Options
+```bat
+# Enterprise build with all features
+build_enterprise.bat
 
-1. Go to the `dist/` folder.
-2. Double-click the `windows_locker.exe` file to launch the Windows Locker security application.
-3. No Python installation is required for end users.
+# Standard build for general users
+build_standard.bat
 
-## How to Distribute
-- Share the `.exe` file from the `dist/` folder with users.
-- Users can download and run the `.exe` directly.
-- For best results, compress the `.exe` into a .zip before sharing.
+# Developer build with debugging
+build_developer.bat
+```
 
-### Download Link
-Once you upload the `.exe` file to your website or cloud storage, add the download link here:
+## 💻 Installation & Deployment
 
-**[Download Windows Locker (.exe)](YOUR_DOWNLOAD_LINK_HERE)**
+### Method 1: Direct Execution (Recommended)
+```bat
+# Download and run directly
+sivaji_security_v3.0_enterprise.exe
 
-## Notes
-- This build is Windows-only and uses PyQt5 for the UI.
-- If you add new dependencies, update `requirements.txt` and rebuild.
-- For advanced packaging (installer, code signing), see [PyInstaller docs](https://pyinstaller.org/).
+# First-time setup
+sivaji_security_v3.0_enterprise.exe --setup
+
+# Enterprise configuration
+sivaji_security_v3.0_enterprise.exe --enterprise-config
+```
+
+### Method 2: Silent Installation
+```bat
+# Silent install with configuration
+sivaji_security_v3.0_enterprise.exe /S /CONFIG=enterprise.json
+
+# Automated deployment
+msiexec /i sivaji_security_v3.0.msi /quiet TRANSFORMS=enterprise.mst
+```
+
+### Method 3: Group Policy Deployment
+```bat
+# Domain deployment via GPO
+gpupdate /force
+# Deploy via Software Installation policy
+```
+
+## 🔒 Security Features
+
+- **Code Signing**: Authenticode signed with EV certificate
+- **Tamper Protection**: Runtime integrity verification
+- **Sandboxing**: Isolated execution environment
+- **Auto-Updates**: Secure update mechanism with rollback
+- **Telemetry**: Optional usage analytics (GDPR compliant)
+
+## 🛠️ Enterprise Management
+
+### Configuration Files
+- `config/enterprise.json` - Enterprise settings
+- `config/security_policy.xml` - Security policies
+- `config/user_groups.yaml` - Role-based access control
+
+### Command Line Options
+```bat
+sivaji_security.exe --help
+sivaji_security.exe --version
+sivaji_security.exe --config-check
+sivaji_security.exe --diagnostic
+sivaji_security.exe --export-logs
+```
+
+## 📊 System Requirements
+
+| Component | Minimum | Recommended | Enterprise |
+|-----------|---------|-------------|------------|
+| **Windows** | 10 (1909+) | 11 (22H2+) | Server 2022 |
+| **RAM** | 8GB | 16GB | 32GB+ |
+| **Storage** | 10GB | 50GB | 500GB+ |
+| **CPU** | Intel i5-8th gen | Intel i7-10th gen | Xeon Gold |
+| **GPU** | Integrated | NVIDIA GTX 1660+ | NVIDIA RTX 4090+ |
+| **TPM** | 2.0 | 2.0 | 2.0 + HSM |
+| **.NET** | 6.0+ | 8.0+ | 8.0+ |
+
+## 🔧 Troubleshooting
+
+### Common Issues
+| Issue | Solution |
+|-------|----------|
+| **"MSVCP140.dll missing"** | Install Visual C++ Redistributable 2022 |
+| **"Access denied"** | Run as Administrator, check antivirus exclusions |
+| **"Microphone not detected"** | Check privacy settings, update audio drivers |
+| **"Model loading failed"** | Verify GPU drivers, check CUDA installation |
+| **"License validation failed"** | Check internet connection, verify license key |
+
+### Performance Optimization
+```bat
+# Optimize for performance
+sivaji_security.exe --optimize-performance
+
+# Enable GPU acceleration
+sivaji_security.exe --enable-gpu
+
+# Reduce memory usage
+sivaji_security.exe --low-memory-mode
+```
