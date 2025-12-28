@@ -1,8 +1,13 @@
-# Windows 10/11 Integration Guide
+# Windows 10/11 Integration Guide - v2.1
+
+[![Windows](https://img.shields.io/badge/Windows-10%2F11-blue.svg)](https://www.microsoft.com/windows/)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Integration](https://img.shields.io/badge/Integration-Pre--Login-green.svg)](#)
 
 ## Overview
 
-Sivaji Security System can be integrated with Windows login to provide pre-desktop authentication.
+Sivaji Security System can be integrated with Windows login to provide pre-desktop authentication with enhanced security features including master key management and encrypted failsafe state.
 
 ## Installation Methods
 
@@ -157,3 +162,44 @@ python scripts/check_audit_logs.py
 - [Windows Logon Architecture](https://docs.microsoft.com/en-us/windows/win32/secauthn/logon-architecture)
 - [Credential Providers](https://docs.microsoft.com/en-us/windows/win32/secauthn/credential-providers-in-windows-vista)
 - [PyQt5 on Windows](https://doc.qt.io/qt-5/windows-deployment.html)
+
+## New Security Features (v2.1)
+
+### Master Key Management
+- Centralized credential storage in `security/credentials/.master_key`
+- Enhanced encryption for all sensitive data
+- Secure key rotation capabilities
+
+### Failsafe State Management
+- Encrypted system state backup in `data/failsafe_state.enc`
+- Disaster recovery capabilities
+- System integrity verification
+
+### Enhanced Speaker Model
+- Improved AI model accuracy
+- Better performance optimization
+- Reduced false positives
+
+## Updated Installation Commands
+
+### Initialize Security System
+```bash
+# First-time setup with new security features
+python main.py --mode setup-developer-secret
+python main.py --mode init-master-key
+python main.py --mode backup-system-state
+```
+
+### Windows Integration with Enhanced Security
+```bash
+# Install with new security features
+python main.py --windows-install --enable-master-key
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+
+```
+MIT License - Copyright (c) 2025 Sivaji Security System
+```

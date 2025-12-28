@@ -1,5 +1,10 @@
 # Security Policy
 
+[![Security](https://img.shields.io/badge/Security-Policy-red.svg)](#)
+[![Vulnerability Reporting](https://img.shields.io/badge/Vulnerability%20Reporting-Responsible-orange.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Response Time](https://img.shields.io/badge/Response%20Time-48h-green.svg)](#)
+
 ## Supported Versions
 
 We actively support the following versions of Sivaji AI Security System with security updates:
@@ -157,3 +162,30 @@ For more information, contact: bounty@sivaji-ai.com
 
 **Last Updated**: January 2024  
 **Next Review**: April 2024
+## License
+
+This Security Policy is part of the Sivaji Security System project.
+
+```
+MIT License
+
+Copyright (c) 2025 Sivaji Security System
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

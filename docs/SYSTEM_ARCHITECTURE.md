@@ -1,5 +1,10 @@
 # Sivaji Security System - System Architecture
 
+[![Architecture](https://img.shields.io/badge/Architecture-Modular-blue.svg)](#)
+[![AI Model](https://img.shields.io/badge/AI%20Model-CNN%2BLSTM-green.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Security](https://img.shields.io/badge/Security-AES--256-red.svg)](#)
+
 ## Overview
 
 Sivaji is a production-grade AI voice biometric authentication system inspired by the Sivaji movie security interface. It provides military-grade speaker recognition with real-time liveness detection, Windows integration, and zero-knowledge voice storage.
@@ -401,3 +406,30 @@ Each component is independent and testable:
 4. **Cloud Backup** (Optional) - Encrypted profile sync
 5. **Mobile App** - Remote enrollment/verification
 6. **Real Credential Provider** - True pre-login integration
+## License
+
+This documentation is part of the Sivaji Security System project.
+
+```
+MIT License
+
+Copyright (c) 2025 Sivaji Security System
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

@@ -1,5 +1,10 @@
 # Security Model & Threat Analysis (Updated with Developer Fail-Safe)
 
+[![Security](https://img.shields.io/badge/Security-AES--256-red.svg)](#)
+[![Threat Model](https://img.shields.io/badge/Threat%20Model-Comprehensive-green.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Compliance](https://img.shields.io/badge/Compliance-NIST%20SP%20800--63B-blue.svg)](#)
+
 ## Security Objectives
 
 1. **Authentication**: Only authorized user can gain access
@@ -361,3 +366,12 @@ Abuse Developer Fail-Safe
 \`\`\`
 
 Perfect! Now let me create one more critical file - a comprehensive integration guide:
+## License
+
+This security documentation is part of the Sivaji Security System project.
+
+```
+MIT License - Copyright (c) 2025 Sivaji Security System
+```
+
+See the [LICENSE](../LICENSE) file for full license details.

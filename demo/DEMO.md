@@ -1,5 +1,10 @@
 # Sivaji Security System - Demo Guide
 
+[![Demo](https://img.shields.io/badge/Demo-Ready-brightgreen.svg)](#)
+[![Quick Start](https://img.shields.io/badge/Quick%20Start-5%20min-blue.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Voice Auth](https://img.shields.io/badge/Voice%20Auth-98%25%20Accuracy-success.svg)](#)
+
 ## Quick Start (5 minutes)
 
 ### 1. Installation
@@ -453,3 +458,12 @@ python main.py
 \`\`\`
 
 **Welcome to the future of voice security.**
+## License
+
+This demo guide is part of the Sivaji Security System project.
+
+```
+MIT License - Copyright (c) 2025 Sivaji Security System
+```
+
+See the [LICENSE](../LICENSE) file for full license details.

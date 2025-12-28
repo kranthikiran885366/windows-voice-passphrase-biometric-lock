@@ -1,5 +1,10 @@
 # Contributor Covenant Code of Conduct
 
+[![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-blue.svg)](https://www.contributor-covenant.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Community](https://img.shields.io/badge/Community-Welcoming-brightgreen.svg)](#)
+[![Security](https://img.shields.io/badge/Security-Responsible-red.svg)](#)
+
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our
@@ -157,3 +162,12 @@ https://www.contributor-covenant.org/translations.
 **Last Updated**: January 2025
 **Version**: 1.0
 **Applies to**: Sivaji Security System Project
+## License
+
+This Code of Conduct is part of the Sivaji Security System project.
+
+```
+MIT License - Copyright (c) 2025 Sivaji Security System
+```
+
+See the [LICENSE](LICENSE) file for full license details.

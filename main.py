@@ -295,13 +295,15 @@ def main():
             return
         
         # Normal authentication flow
+        from PyQt5.QtWidgets import QApplication
+        app = QApplication(sys.argv)
         lockscreen = SivajiLockscreen(
             enable_face=args.enable_face or config.biometric.enable_face,
             enable_iris=args.enable_iris or config.biometric.enable_iris,
             failsafe_manager=failsafe  # Pass failsafe to lockscreen
         )
         lockscreen.show()
-        sys.exit(lockscreen.exec_())
+        sys.exit(app.exec_())
 
 
 def run_system_tests(config: SystemConfig, debug: bool = False, failsafe = None):

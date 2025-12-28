@@ -23,6 +23,7 @@ class ModelInference:
             self.model_path = h5_path
         self.full_model = None
         self.embedding_model = None
+        self.model = None  # Ensure self.model is always defined
         self._load_model()
     
     def _load_model(self):
@@ -30,7 +31,11 @@ class ModelInference:
         if self.model_path.exists():
             try:
                 self.full_model = tf.keras.models.load_model(self.model_path)
+                # Ensure model is built by calling it with dummy data
+                dummy_input = np.zeros((1, 13, 50, 1), dtype=np.float32)
+                self.full_model(dummy_input)
                 self.embedding_model = create_embedding_extractor_model(self.full_model)
+                self.model = self.full_model  # Ensure self.model is set after loading
                 print(f"✓ Model loaded from {self.model_path}")
             except Exception as e:
                 print(f"Failed to load model: {e}. Creating new model...")
@@ -45,14 +50,13 @@ class ModelInference:
             num_speakers=1
         )
         self.embedding_model = create_embedding_extractor_model(self.full_model)
-        
+        self.model = self.full_model  # Ensure self.model is set after creating default
         # Compile
         self.full_model.compile(
             optimizer='adam',
             loss='sparse_categorical_crossentropy',
             metrics=['accuracy']
         )
-        
         print("✓ Default model created")
     
     def extract_embedding(self, mfcc_features):

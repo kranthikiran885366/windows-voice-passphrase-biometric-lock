@@ -1,5 +1,10 @@
 # Contributing to Sivaji Security System
 
+[![Contributors Welcome](https://img.shields.io/badge/Contributors-Welcome-brightgreen.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Enforced-blue.svg)](CODE_OF_CONDUCT.md)
+[![Security](https://img.shields.io/badge/Security-Critical-red.svg)](#)
+
 Thank you for your interest in contributing to the Sivaji Security System! This document provides guidelines for contributing to this production-grade AI voice biometric authentication system.
 
 ## Table of Contents
