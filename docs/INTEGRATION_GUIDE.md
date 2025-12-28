@@ -18,7 +18,7 @@ This guide provides step-by-step instructions for integrating and deploying the 
 
 ### Step 1: Environment Setup
 
-```bash
+\`\`\`bash
 # Clone repository
 git clone https://github.com/user/sivaji-security-system.git
 cd sivaji-security-system
@@ -34,13 +34,13 @@ source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
-```
+\`\`\`
 
 ### Step 2: Initialize Developer Fail-Safe
 
 **CRITICAL**: This must be done in a SECURE environment with NO unauthorized access.
 
-```bash
+\`\`\`bash
 # Setup developer secret (one-time)
 python main.py --mode setup-developer-secret
 
@@ -52,7 +52,7 @@ python main.py --mode setup-developer-secret
 # Developer secret configured successfully!
 # Store this encrypted hash securely:
 # [Encrypted hash displayed]
-```
+\`\`\`
 
 **Best Practices**:
 1. Use a strong, random secret (16+ characters, mix of upper/lower/numbers/symbols)
@@ -63,7 +63,7 @@ python main.py --mode setup-developer-secret
 
 ### Step 3: Test Fail-Safe System
 
-```bash
+\`\`\`bash
 # Verify fail-safe integrity
 python main.py --mode check-failsafe-status
 
@@ -75,11 +75,11 @@ python main.py --mode check-failsafe-status
 #   Uses Remaining: 3
 #   Tamper Detected: false
 #   Integrity OK: true
-```
+\`\`\`
 
 ### Step 4: Enroll Authorized User
 
-```bash
+\`\`\`bash
 # Enroll voice biometric
 python main.py --mode enroll --username "authorized_user"
 
@@ -93,11 +93,11 @@ python main.py --mode enroll --username "authorized_user"
 # After enrollment:
 # Enrollment successful!
 # Voice profile created and encrypted
-```
+\`\`\`
 
 ### Step 5: Verify System Health
 
-```bash
+\`\`\`bash
 # Run comprehensive system tests
 python main.py --mode test
 
@@ -107,13 +107,13 @@ python main.py --mode test
 # ✓ Encryption: PASSED
 # ✓ Storage: PASSED
 # ✓ Failsafe Integrity: PASSED
-```
+\`\`\`
 
 ## Operational Procedures
 
 ### Normal Authentication
 
-```bash
+\`\`\`bash
 # Launch system
 python main.py
 
@@ -126,13 +126,13 @@ python main.py
 # Speak the displayed sentence naturally
 # System authenticates in <2 seconds
 # "Access GRANTED" → Desktop accessible
-```
+\`\`\`
 
 ### Emergency Fail-Safe Activation
 
 #### Scenario: Microphone Hardware Fails
 
-```bash
+\`\`\`bash
 # System detects failure on startup
 $ python main.py
 [SYSTEM FAILURE DETECTED]
@@ -146,11 +146,11 @@ To activate emergency access:
   2. Enter developer secret when prompted
   3. Press Ctrl+Alt+F12+D (physical confirmation)
   4. Enter the provided one-time key
-```
+\`\`\`
 
 #### Step 1: Request OTK
 
-```bash
+\`\`\`bash
 # Request one-time key
 $ python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 
@@ -165,13 +165,13 @@ To activate fail-safe:
   2. Enter developer secret
   3. Press Ctrl+Alt+F12+D (physical confirmation)
   4. Enter the OTK above
-```
+\`\`\`
 
 **Important**: OTK is valid for 15 minutes from generation. Request a fresh OTK if you miss the deadline.
 
 #### Step 2: Activate Fail-Safe
 
-```bash
+\`\`\`bash
 # When system shows failure prompt:
 [SYSTEM FAILURE DETECTED]
 Enter developer secret: ••••••••••••••••
@@ -187,7 +187,7 @@ Developer override authenticated. Emergency access granted.
 [Voice announcement plays]
 
 System accessible for 30 minutes.
-```
+\`\`\`
 
 #### Step 3: Resolve System Issue
 
@@ -197,20 +197,20 @@ Once emergency access is granted:
 2. Verify fix with `python main.py --mode test`
 3. Disable fail-safe when issue is resolved:
 
-```bash
+\`\`\`bash
 # Disable fail-safe after issue is fixed
 python main.py --mode disable-failsafe
 
 # Verify deactivation
 python main.py --mode check-failsafe-status
 # Should show: Active: false
-```
+\`\`\`
 
 ## Fail-Safe Management
 
 ### Requesting One-Time Keys
 
-```bash
+\`\`\`bash
 # Request OTK with specific failure type
 python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 python main.py --mode request-otk --failure-type MODEL_CRASH
@@ -220,11 +220,11 @@ python main.py --mode request-otk --failure-type SYSTEM_ERROR
 # Each generates a unique, time-bound key
 # Valid for 15 minutes from generation
 # Single-use only
-```
+\`\`\`
 
 ### Checking Fail-Safe Status
 
-```bash
+\`\`\`bash
 # Check current fail-safe status
 python main.py --mode check-failsafe-status
 
@@ -237,28 +237,28 @@ python main.py --mode check-failsafe-status
 #   Uses Remaining: N
 #   Tamper Detected: true | false
 #   Integrity OK: true | false
-```
+\`\`\`
 
 ### Disabling Fail-Safe Manually
 
-```bash
+\`\`\`bash
 # Disable when system is operational
 python main.py --mode disable-failsafe
 
 # Enter developer secret when prompted
 # System deactivates fail-safe
-```
+\`\`\`
 
 ### Updating Developer Secret
 
-```bash
+\`\`\`bash
 # Change developer secret (advanced)
 # Requires current secret
 python main.py --mode setup-developer-secret
 
 # System will prompt for new secret
 # Store encrypted hash securely
-```
+\`\`\`
 
 ## Windows Integration
 
@@ -266,22 +266,22 @@ python main.py --mode setup-developer-secret
 
 See `docs/WINDOWS_INTEGRATION.md` for detailed Windows setup.
 
-```bash
+\`\`\`bash
 # Windows startup integration
 python windows/startup_script.py
 
 # Registers as startup application
 # Runs before desktop loads
 # Blocks system access until authenticated
-```
+\`\`\`
 
 ### Create Windows Shortcut
 
-```
+\`\`\`
 Name: Sivaji Security System
 Target: C:\path\to\venv\Scripts\python.exe main.py
 Start in: C:\path\to\sivaji-security-system\
-```
+\`\`\`
 
 ## Troubleshooting
 
@@ -334,7 +334,7 @@ Start in: C:\path\to\sivaji-security-system\
 
 ### Reviewing Failsafe Events
 
-```bash
+\`\`\`bash
 # View encrypted failsafe log
 # Stored in: logs/failsafe_events.enc
 
@@ -344,11 +344,11 @@ Start in: C:\path\to\sivaji-security-system\
 #   - One-time key generation events
 #   - Tamper detection events
 #   - Auto-deactivation records
-```
+\`\`\`
 
 ### Example Audit Log Entry
 
-```json
+\`\`\`json
 {
   "timestamp": "2025-01-15T10:30:45.123456",
   "type": "SUCCESS",
@@ -358,13 +358,13 @@ Start in: C:\path\to\sivaji-security-system\
   "use_count": 1,
   "active": true
 }
-```
+\`\`\`
 
 ## Backup & Recovery
 
 ### Backup Enrollment Data
 
-```bash
+\`\`\`bash
 # Backup encrypted voice profiles
 cp -r enrollments/ enrollments_backup_$(date +%Y%m%d)/
 
@@ -376,44 +376,44 @@ cp data/failsafe_state.enc failsafe_state_backup_$(date +%Y%m%d).enc
 
 # Backup audit logs
 cp logs/failsafe_events.enc failsafe_events_backup_$(date +%Y%m%d).enc
-```
+\`\`\`
 
 ### Recovery Procedure
 
-```bash
+\`\`\`bash
 # If system data corrupted:
 1. Stop running Sivaji process
 2. Restore from encrypted backups
 3. Verify encryption key integrity
 4. Run system tests: python main.py --mode test
 5. Re-authenticate to verify restoration
-```
+\`\`\`
 
 ## Performance Optimization
 
 ### Model Caching
 
-```python
+\`\`\`python
 # Models cached in memory after first load
 # Subsequent authentications use cached model
 # Reduces authentication time from 2-3s to 1.5-2s
-```
+\`\`\`
 
 ### Waveform Animation
 
-```python
+\`\`\`python
 # Waveform animation runs at 30 FPS
 # Consumes ~5-10% CPU during recording
 # Disable if CPU usage is critical
-```
+\`\`\`
 
 ### Multi-Threaded Processing
 
-```python
+\`\`\`python
 # Voice processing multi-threaded
 # Liveness detection parallel to model inference
 # Reduces latency by ~200-300ms
-```
+\`\`\`
 
 ## Security Best Practices
 

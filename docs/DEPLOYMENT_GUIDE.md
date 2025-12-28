@@ -12,36 +12,36 @@
 
 ### 1. Clone Repository
 
-```bash
+\`\`\`bash
 git clone https://github.com/your-username/sivaji-security-system
 cd sivaji-security-system
-```
+\`\`\`
 
 ### 2. Create Virtual Environment
 
-```bash
+\`\`\`bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+\`\`\`
 
 ### 3. Install Dependencies
 
-```bash
+\`\`\`bash
 pip install -r requirements.txt
-```
+\`\`\`
 
 ### 4. Create Necessary Directories
 
-```bash
+\`\`\`bash
 mkdir -p enrollments
 mkdir -p logs
 mkdir -p config
 mkdir -p ai_models/pretrained
-```
+\`\`\`
 
 ### 5. Download Pre-trained Models
 
-```bash
+\`\`\`bash
 # Download voice models
 wget https://example.com/models/voice_model.h5 -O ai_models/pretrained/voice_model.h5
 
@@ -51,13 +51,13 @@ wget https://example.com/models/face_liveness_model.h5 -O ai_models/pretrained/f
 
 # Download iris models (if using iris recognition)
 wget https://example.com/models/iris_embedding_model.h5 -O ai_models/pretrained/iris_embedding_model.h5
-```
+\`\`\`
 
 ### 6. Initialize Configuration
 
-```bash
+\`\`\`bash
 python main.py --mode config
-```
+\`\`\`
 
 ## Windows Integration
 
@@ -69,9 +69,9 @@ python main.py --mode config
 
 ### Option 2: Registry Hook
 
-```bash
+\`\`\`bash
 python windows/windows_integration.py --register
-```
+\`\`\`
 
 ### Option 3: Credential Provider (Advanced)
 
@@ -81,58 +81,58 @@ Requires C++ DLL development. See `windows/README_WINDOWS.md` for details.
 
 ### Single User Setup
 
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "authorized_user"
-```
+\`\`\`
 
 ### Multiple Users
 
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "user1"
 python main.py --mode enroll --username "user2"
 python main.py --mode enroll --username "user3"
-```
+\`\`\`
 
 ## Running the System
 
 ### Basic Authentication
 
-```bash
+\`\`\`bash
 python main.py
-```
+\`\`\`
 
 ### With Debug Logging
 
-```bash
+\`\`\`bash
 python main.py --debug
-```
+\`\`\`
 
 ### Multi-Biometric Mode
 
-```bash
+\`\`\`bash
 python main.py --enable-face --enable-iris
-```
+\`\`\`
 
 ## Configuration Management
 
 ### View Current Configuration
 
-```bash
+\`\`\`bash
 python main.py --mode config
-```
+\`\`\`
 
 ### Modify Configuration
 
-```bash
+\`\`\`bash
 python main.py --mode config
 # Interactive wizard will guide you
-```
+\`\`\`
 
 ### Manual Configuration Edit
 
 Edit `config/system_config.json`:
 
-```json
+\`\`\`json
 {
   "security": {
     "max_failed_attempts": 5,
@@ -149,13 +149,13 @@ Edit `config/system_config.json`:
     "enable_sms": false
   }
 }
-```
+\`\`\`
 
 ## System Testing
 
-```bash
+\`\`\`bash
 python main.py --mode test
-```
+\`\`\`
 
 This will test:
 - Audio I/O
@@ -169,21 +169,21 @@ This will test:
 
 ### View Authentication Logs
 
-```bash
+\`\`\`bash
 cat logs/authentication.log
-```
+\`\`\`
 
 ### View Threat Logs
 
-```bash
+\`\`\`bash
 cat logs/threats.log
-```
+\`\`\`
 
 ### View Audit Logs
 
-```bash
+\`\`\`bash
 cat logs/audit.log
-```
+\`\`\`
 
 ## Notifications Setup
 
@@ -191,7 +191,7 @@ cat logs/audit.log
 
 1. Update `config/notification_config.json`:
 
-```json
+\`\`\`json
 {
   "email_enabled": true,
   "email_smtp_server": "smtp.gmail.com",
@@ -201,7 +201,7 @@ cat logs/audit.log
     "admin_emails": ["admin@example.com"]
   }
 }
-```
+\`\`\`
 
 2. Use Gmail app password (not regular password)
 
@@ -210,7 +210,7 @@ cat logs/audit.log
 1. Sign up for Twilio account
 2. Update `config/notification_config.json`:
 
-```json
+\`\`\`json
 {
   "sms_enabled": true,
   "sms_account_sid": "your-account-sid",
@@ -220,74 +220,74 @@ cat logs/audit.log
     "admin_phones": ["+1987654321"]
   }
 }
-```
+\`\`\`
 
 ## Troubleshooting
 
 ### Issue: "ModuleNotFoundError"
 
 **Solution**: Install missing dependencies
-```bash
+\`\`\`bash
 pip install -r requirements.txt --upgrade
-```
+\`\`\`
 
 ### Issue: "Camera not found"
 
 **Solution**: Check camera permissions
-```bash
+\`\`\`bash
 # Linux
 sudo apt-get install libglib2.0-0
 
 # Windows
 Settings > Privacy & Security > Camera
-```
+\`\`\`
 
 ### Issue: "Audio device not found"
 
 **Solution**: Check microphone
-```bash
+\`\`\`bash
 python -c "import sounddevice; print(sounddevice.query_devices())"
-```
+\`\`\`
 
 ### Issue: "Low authentication accuracy"
 
 **Solution**: Re-enroll with better quality samples
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "user1"
-```
+\`\`\`
 
 ## Performance Optimization
 
 ### Reduce Authentication Time
 
-```json
+\`\`\`json
 {
   "security": {
     "voice_confidence_threshold": 0.95
   }
 }
-```
+\`\`\`
 
 ### Improve Accuracy
 
-```json
+\`\`\`json
 {
   "security": {
     "voice_confidence_threshold": 0.99
   }
 }
-```
+\`\`\`
 
 ### Enable GPU Acceleration
 
-```python
+\`\`\`python
 # Automatic GPU detection in TensorFlow
 # Requires CUDA toolkit installed
-```
+\`\`\`
 
 ## Uninstallation
 
-```bash
+\`\`\`bash
 # Remove startup hook
 python windows/windows_integration.py --unregister
 
@@ -296,7 +296,7 @@ rm -rf enrollments logs config ai_models
 
 # Remove virtual environment
 rm -rf venv
-```
+\`\`\`
 
 ## Support
 
@@ -304,6 +304,6 @@ For issues, refer to:
 - `docs/TROUBLESHOOTING.md` - Common problems
 - `docs/SYSTEM_ARCHITECTURE.md` - Technical details
 - `docs/ALGORITHMS_USED.md` - Algorithm documentation
-```
+\`\`\`
 
 Now let me create the final comprehensive documentation index:

@@ -29,19 +29,19 @@ The fail-safe is designed to activate ONLY when:
 
 ### Layer 1: Developer Secret (Something You Know)
 
-```
+\`\`\`
 Developer Secret = cryptographically hashed password
 Algorithm: PBKDF2-SHA256
 Salt: 32 random bytes
 Iterations: 100,000
 Storage: Encrypted in data/failsafe_state.enc
-```
+\`\`\`
 
 **Setup (One-time):**
-```bash
+\`\`\`bash
 # Developer configures secret during initial setup
 python main.py --setup-developer-secret
-```
+\`\`\`
 
 **Verification:**
 - Constant-time comparison to prevent timing attacks
@@ -50,12 +50,12 @@ python main.py --setup-developer-secret
 
 ### Layer 2: Time-Bound One-Time Key (Something You Have)
 
-```
+\`\`\`
 One-Time Key (OTK) = 32-byte cryptographic random value
 Validity: 15 minutes from generation
 Format: 64-character hexadecimal string
 Example: a3f2b8c9d1e4f6a2b5c8d1e4f6a2b5c8d1e4f6a2b5c8d1e4f6a2b5c8d1e4f
-```
+\`\`\`
 
 **Generation:**
 - Developer requests OTK when system failure occurs
@@ -72,11 +72,11 @@ Example: a3f2b8c9d1e4f6a2b5c8d1e4f6a2b5c8d1e4f6a2b5c8d1e4f6a2b5c8d1e4f
 
 ### Layer 3: Physical Confirmation (Something You Have - Keyboard)
 
-```
+\`\`\`
 Physical Sequence: Ctrl + Alt + F12 + D
 Purpose: Confirm human operator at keyboard
 Defense: Prevents remote exploitation
-```
+\`\`\`
 
 **Sequence Details:**
 - Keys must be pressed in exact order: `Ctrl` → `Alt` → `F12` → `D`
@@ -97,7 +97,7 @@ Defense: Prevents remote exploitation
 
 ### Step 1: Detect System Failure
 
-```python
+\`\`\`python
 from security.developer_failsafe import DeveloperFailsafeManager
 
 failsafe = DeveloperFailsafeManager(encryption_key, audit_logger)
@@ -106,13 +106,13 @@ failsafe = DeveloperFailsafeManager(encryption_key, audit_logger)
 if microphone_failed():
     is_failure = failsafe.detect_system_failure('MICROPHONE_FAILURE')
     # Returns: True - failsafe available
-```
+\`\`\`
 
 ### Step 2: Request One-Time Key
 
 When system failure is detected, display message:
 
-```
+\`\`\`
 [SYSTEM FAILURE DETECTED]
 Authentication system unavailable.
 
@@ -122,11 +122,11 @@ For developer emergency access:
 3. Use secret + OTK + physical confirmation (Ctrl+Alt+F12+D)
 
 OTK will be valid for 15 minutes from generation.
-```
+\`\`\`
 
 ### Step 3: Input Sequence
 
-```python
+\`\`\`python
 # Developer inputs secret
 developer_secret = input("Developer Secret: ")  # Hidden input
 
@@ -142,16 +142,16 @@ success, message = failsafe.activate_failsafe(
     otk=one_time_key,
     system_failure_reason="Microphone hardware failure"
 )
-```
+\`\`\`
 
 ### Step 4: Announce Override
 
 On successful activation, system announces:
 
-```
+\`\`\`
 "Developer override authenticated. Emergency access granted."
 [Audio + visual confirmation]
-```
+\`\`\`
 
 ---
 
@@ -172,7 +172,7 @@ On successful activation, system announces:
 
 All failsafe data encrypted with AES-256-GCM:
 
-```python
+\`\`\`python
 from cryptography.fernet import Fernet
 
 # Failsafe state file
@@ -183,13 +183,13 @@ from cryptography.fernet import Fernet
 
 # Format: Encrypted JSON records
 # Access: Only via DeveloperFailsafeManager with correct key
-```
+\`\`\`
 
 ### Audit Logging
 
 Every failsafe event logged with:
 
-```json
+\`\`\`json
 {
   "timestamp": "2025-01-15T10:30:45.123456",
   "type": "SUCCESS|FAILED|INFO|WARNING",
@@ -199,7 +199,7 @@ Every failsafe event logged with:
   "use_count": 1,
   "active": true
 }
-```
+\`\`\`
 
 ---
 
@@ -237,7 +237,7 @@ Every failsafe event logged with:
 
 ### Verification Flow
 
-```
+\`\`\`
                 Developer provides input
                          |
                          v
@@ -274,11 +274,11 @@ Every failsafe event logged with:
          |
          v
       [READY] System accessible, door unlocked
-```
+\`\`\`
 
 ### State Machine
 
-```
+\`\`\`
 [INACTIVE] ──(detect failure)--> [AWAITING_SECRET]
    ^                                    |
    |                              (secret OK)
@@ -294,7 +294,7 @@ Every failsafe event logged with:
    |                             [ACTIVE]
    |                                    |
    +----(deactivate/timeout)----------<
-```
+\`\`\`
 
 ---
 
@@ -302,7 +302,7 @@ Every failsafe event logged with:
 
 ### Example 1: Microphone Failure Recovery
 
-```bash
+\`\`\`bash
 # Developer at console detects system failure
 $ python main.py
 [SYSTEM FAILURE: Microphone unavailable]
@@ -314,21 +314,21 @@ One-time key: a3f2b8c9d1e4f6a2b5c8d1e4f6a2b5c8d1e4f...
 
 Developer override authenticated. Emergency access granted.
 System accessible for 30 minutes.
-```
+\`\`\`
 
 ### Example 2: Model Crash Recovery
 
-```bash
+\`\`\`bash
 $ python main.py --mode verify
 [ERROR] AI model failed to load
 
 Failsafe activated for developer emergency access.
 System will deactivate after 30 minutes or when model restored.
-```
+\`\`\`
 
 ### Example 3: Failed OTK Attempt
 
-```bash
+\`\`\`bash
 $ python main.py
 [SYSTEM FAILURE DETECTED]
 
@@ -337,7 +337,7 @@ One-time key: invalid_key_123456789
 
 [FAILSAFE REJECTED] Invalid or expired one-time key
 Failsafe deactivated. Contact system administrator.
-```
+\`\`\`
 
 ---
 
@@ -345,7 +345,7 @@ Failsafe deactivated. Contact system administrator.
 
 ### Setting Up Developer Secret
 
-```bash
+\`\`\`bash
 # One-time setup (secure console)
 python main.py --setup-developer-secret
 
@@ -353,11 +353,11 @@ python main.py --setup-developer-secret
 # Enter new developer secret: ••••••••••••••••
 # Confirm secret: ••••••••••••••••
 # Secret configured successfully. Store OTK request process securely.
-```
+\`\`\`
 
 ### Requesting One-Time Key
 
-```bash
+\`\`\`bash
 # Developer runs when system failure occurs
 python main.py --request-otk --failure-type MICROPHONE_FAILURE
 
@@ -365,11 +365,11 @@ python main.py --request-otk --failure-type MICROPHONE_FAILURE
 # OTK: a3f2b8c9d1e4f6a2b5c8d1e4f6a2b5c8d1e4f6a2b5c8d1e4f6a2b5c8d1e4f
 # Valid for: 15 minutes
 # Use with developer secret and physical confirmation
-```
+\`\`\`
 
 ### Checking Failsafe Status
 
-```bash
+\`\`\`bash
 python main.py --check-failsafe-status
 
 # Output:
@@ -380,28 +380,28 @@ python main.py --check-failsafe-status
 # uses_remaining: 2
 # tamper_detected: false
 # integrity_ok: true
-```
+\`\`\`
 
 ### Disabling Failsafe Manually
 
-```bash
+\`\`\`bash
 # Admin can disable failsafe (requires secret)
 python main.py --disable-failsafe
 
 # After verification:
 # Failsafe deactivated. System restored to normal operation.
-```
+\`\`\`
 
 ### Reviewing Failsafe Audit Log
 
-```bash
+\`\`\`bash
 python main.py --view-failsafe-log
 
 # Encrypted log entries:
 # 2025-01-15T10:30:45 | SUCCESS    | FAILSAFE_ACTIVATED
 # 2025-01-15T10:30:20 | FAILED     | INVALID_SECRET
 # 2025-01-15T10:28:10 | WARNING    | SYSTEM_FAILURE_DETECTED
-```
+\`\`\`
 
 ---
 
@@ -507,8 +507,8 @@ For critical system failures only. Use with responsibility.
 **Last Updated**: January 2025
 **Version**: 1.0 (Production Ready)
 **Classification**: Confidential - Developer Only
-```
+\`\`\`
 
 Now let me update the main.py to integrate the developer fail-safe:
 
-```python file="" isHidden
+\`\`\`python file="" isHidden

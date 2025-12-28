@@ -8,7 +8,7 @@ Inspired by Sivaji movie's computer security interface - dark, professional, wit
 
 ## Color Palette
 
-```
+\`\`\`
 Primary Background:  #0a0e27  (Dark navy)
 Primary Accent:      #00d9ff  (Cyan - "scanning" theme)
 Secondary Accent:    #7c3aed  (Violet - "processing" theme)
@@ -18,7 +18,7 @@ Error:               #ff3333  (Red - "denied")
 Text Primary:        #e0e0e0  (Light gray)
 Text Secondary:      #b0b0b0  (Medium gray)
 Border Glow:         #00d9ff  (Cyan)
-```
+\`\`\`
 
 ## Typography
 
@@ -46,7 +46,7 @@ Border Glow:         #00d9ff  (Cyan)
 
 ### Full-Screen Lockscreen
 
-```
+\`\`\`
 ┌─────────────────────────────────────────────┐
 │                                             │
 │         SIVAJI                              │
@@ -72,57 +72,57 @@ Border Glow:         #00d9ff  (Cyan)
 │   Click START AUTHENTICATION and speak      │
 │                                             │
 └─────────────────────────────────────────────┘
-```
+\`\`\`
 
 ### State Transitions
 
 #### State 1: Idle (Ready)
-```
+\`\`\`
 Status: VOICE AUTHENTICATION REQUIRED
 Button: [START AUTHENTICATION] (enabled)
 Waveform: Static
 Message: "Click START AUTHENTICATION and speak..."
-```
+\`\`\`
 
 #### State 2: Recording
-```
+\`\`\`
 Status: LISTENING...
 Button: (disabled)
 Waveform: Animated (color: cyan → violet)
 Message: "Speak now. Recording..."
-```
+\`\`\`
 
 #### State 3: Processing
-```
+\`\`\`
 Status: ANALYZING VOICE...
 Button: (disabled)
 Waveform: Animated (fading out)
 Message: "Processing biometric data..."
-```
+\`\`\`
 
 #### State 4A: Success
-```
+\`\`\`
 Status: ACCESS GRANTED (green, large)
 Button: Hidden
 Waveform: Visible with green glow
 Message: "Authentication successful. [Green checkmark]"
 [Auto-close after 2 seconds]
-```
+\`\`\`
 
 #### State 4B: Failure
-```
+\`\`\`
 Status: ACCESS DENIED (red, large)
 Button: [START AUTHENTICATION] (enabled after 2s)
 Waveform: Shows failure pattern (red)
 Message: "Attempt 2/3 failed. Try again."
-```
+\`\`\`
 
 ## Interactive Elements
 
 ### Button: START AUTHENTICATION
 
 **Appearance:**
-```
+\`\`\`
 ┌──────────────────────────┐
 │ START AUTHENTICATION     │
 └──────────────────────────┘
@@ -132,7 +132,7 @@ Text: White, bold, 12px
 Border: 2px solid #00d9ff (cyan)
 Padding: 12px 30px
 Border-radius: 5px
-```
+\`\`\`
 
 **States:**
 - **Default**: Violet bg, cyan border
@@ -141,19 +141,19 @@ Border-radius: 5px
 - **Disabled**: Grayed out (30% opacity)
 
 **Interaction:**
-```
+\`\`\`
 Click → State transition to "Recording"
         Audio recording starts (3 seconds)
         Waveform animates
         Button disabled
-```
+\`\`\`
 
 ### Waveform Visualization
 
 **Purpose**: Real-time audio feedback during recording
 
 **Visual:**
-```
+\`\`\`
 40 vertical bars (frequency bands)
 Each bar height = audio intensity (0-100%)
 Color gradient:
@@ -163,19 +163,19 @@ Color gradient:
 
 Update rate: 50ms (20 FPS)
 Animation: Smooth decay + sine wave modulation
-```
+\`\`\`
 
 **Example:**
 
-```
+\`\`\`
 Quiet period:         Medium level:         Loud period:
 ▂ ▂ ▂ ▂ ▂             ▃ ▅ ▇ █ ▇ ▅ ▃         ▄ ▆ █ █ ▆ ▄
-```
+\`\`\`
 
 ### Status Indicators
 
 **Text Labels:**
-```
+\`\`\`
 Status: "LISTENING..." (cyan, animated with dots)
         "ANALYZING VOICE..." (cyan → violet transition)
         "ACCESS GRANTED" (green, pulsing)
@@ -187,7 +187,7 @@ Confidence: "Confidence: 95.2% | Liveness: 87.5%"
 Message: "Speak clearly and naturally"
          "Attempt 2/3 failed. Try again."
          (Below waveform, light gray)
-```
+\`\`\`
 
 ## Microphone Indicator
 
@@ -203,12 +203,12 @@ Message: "Speak clearly and naturally"
 ## Dark Theme Implementation
 
 ### Background
-```css
+\`\`\`css
 QMainWindow {
     background-color: #0a0e27;  /* Dark navy */
     color: #e0e0e0;             /* Light gray text */
 }
-```
+\`\`\`
 
 ### Benefits
 - Reduces eye strain (especially late night)
@@ -224,42 +224,42 @@ QMainWindow {
 ## Animation Details
 
 ### Title Entrance
-```
+\`\`\`
 Duration: 800ms
 Type: Fade-in + slide down
 Timing: Ease-out cubic
-```
+\`\`\`
 
 ### Button Hover
-```
+\`\`\`
 Duration: 200ms
 Type: Background color + border color transition
 Timing: Linear
-```
+\`\`\`
 
 ### Waveform Update
-```
+\`\`\`
 Duration: Continuous
 Type: Bar height animation + color transition
 Frequency: 50ms per frame (20 FPS)
 Easing: Linear (real-time audio)
-```
+\`\`\`
 
 ### Success State
-```
+\`\`\`
 Duration: Pulsing (2s cycle)
 Type: Green glow opacity change
 Alpha: 0.5 → 1.0 → 0.5
 Auto-close after: 2 seconds
-```
+\`\`\`
 
 ### Failure State
-```
+\`\`\`
 Duration: 500ms
 Type: Red background flash + shake
 Intensity: Medium (±3px horizontal)
 Repeat: 2 times
-```
+\`\`\`
 
 ## Accessibility Features
 
@@ -288,53 +288,53 @@ Repeat: 2 times
 ## Responsive Design
 
 ### Desktop (1920x1080+)
-```
+\`\`\`
 Full-screen layout, centered
 Max width: 800px dialog
 Padding: 50px (comfortable)
-```
+\`\`\`
 
 ### Laptop (1366x768)
-```
+\`\`\`
 Full-screen, slightly compressed
 Max width: 600px
 Padding: 30px
 Font size: Reduced 10%
-```
+\`\`\`
 
 ### Tablet (iPad-like)
-```
+\`\`\`
 Full-screen, portrait
 Max width: 90% of screen
 Font size: Adjusted for touch
 Button size: 48px minimum (touch-friendly)
-```
+\`\`\`
 
 ## Voice Bot Integration
 
 ### Success Voice Response
-```
+\`\`\`
 Text: "Authentication successful. Welcome. System access granted."
 Timing: Plays immediately on auth success
 Duration: ~3 seconds
 Volume: 90% (professional, not annoying)
-```
+\`\`\`
 
 ### Failure Voice Response
-```
+\`\`\`
 Text: "Unauthorized access detected. You are not permitted to use this system."
 Timing: Plays immediately on auth failure
 Duration: ~2.5 seconds
 Volume: 90%
-```
+\`\`\`
 
 ### Lockout Voice Response
-```
+\`\`\`
 Text: "Security violation confirmed. System locked."
 Timing: Plays after 3rd failed attempt
 Duration: ~1.5 seconds
 Volume: 90%
-```
+\`\`\`
 
 ## Future Design Enhancements
 

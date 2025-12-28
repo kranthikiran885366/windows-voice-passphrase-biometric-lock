@@ -26,7 +26,7 @@ This guide covers integrating Sivaji with Windows logon to provide security befo
 
 **Step 2: Test on Reboot**
 
-```
+\`\`\`
 Press: Win + R
 Type: shutdown /r /t 60 /c "Testing Sivaji"
 Press: Enter
@@ -35,7 +35,7 @@ Press: Enter
 [Sivaji appears before desktop loads]
 [Authenticate with voice]
 [Desktop loads on success]
-```
+\`\`\`
 
 **Advantages:**
 ✅ No admin required
@@ -58,9 +58,9 @@ Press: Enter
 
 1. Right-click Command Prompt → Run as Administrator
 2. Paste:
-```bash
+\`\`\`bash
 python "C:\path\to\sivaji\main.py" --windows-install
-```
+\`\`\`
 
 **Step 2: Verify Installation**
 
@@ -70,11 +70,11 @@ python "C:\path\to\sivaji\main.py" --windows-install
 
 **Step 3: Test**
 
-```
+\`\`\`
 Restart computer
 Sivaji appears earlier than Method 1
 Authenticate with voice
-```
+\`\`\`
 
 **Advantages:**
 ✅ Runs earlier than Startup folder
@@ -88,10 +88,10 @@ Authenticate with voice
 
 ### Uninstall
 
-```bash
+\`\`\`bash
 # As Administrator
 python "C:\path\to\sivaji\main.py" --windows-uninstall
-```
+\`\`\`
 
 ---
 
@@ -103,7 +103,7 @@ A Credential Provider is a Windows component that handles user logon. Custom pro
 
 ### Architecture
 
-```
+\`\`\`
 ┌──────────────────────────────────┐
 │      Windows Logon UI            │
 │   (Credential Provider)          │
@@ -120,7 +120,7 @@ A Credential Provider is a Windows component that handles user logon. Custom pro
 │   Userenv.exe (Profile Loading)  │
 │   Desktop Startup                │
 └──────────────────────────────────┘
-```
+\`\`\`
 
 ### Implementation (Advanced)
 
@@ -140,7 +140,7 @@ A Credential Provider is a Windows component that handles user logon. Custom pro
 
 ### C++ Skeleton
 
-```cpp
+\`\`\`cpp
 // SivajiProvider.h
 #include <credentialprovider.h>
 
@@ -162,18 +162,18 @@ private:
     // TensorFlow inference
     int RunModelInference(float* mfcc_features);
 };
-```
+\`\`\`
 
 ### Registration
 
-```bash
+\`\`\`bash
 # As Administrator in System32 folder
 regsvr32 SivajiProvider.dll
 
 # Then set as active provider:
 # HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\
 # {CLSID_OF_SIVAJI} = "Sivaji Voice Authentication"
-```
+\`\`\`
 
 **Advantages:**
 ✅ Pre-login (runs before logon UI)
@@ -195,16 +195,16 @@ For deploying across multiple Windows machines in a domain:
 
 ### Step 1: Create Group Policy Object
 
-```
+\`\`\`
 Open: Group Policy Management Console (gpmc.msc)
 Navigate: Forest > Domains > YOUR_DOMAIN > Group Policy Objects
 Right-click: New
 Name: "Sivaji Voice Authentication"
-```
+\`\`\`
 
 ### Step 2: Configure Startup Script
 
-```
+\`\`\`
 Edit Policy:
   Computer Configuration
     → Windows Settings
@@ -213,23 +213,23 @@ Edit Policy:
     → Add Script
 
 Script Path: \\file-server\scripts\startup_script.py
-```
+\`\`\`
 
 ### Step 3: Link to Organizational Unit
 
-```
+\`\`\`
 Right-click: YOUR_OU
 Link: Sivaji Voice Authentication GPO
 Enforce: Yes (prevent override)
-```
+\`\`\`
 
 ### Step 4: Test Deployment
 
-```
+\`\`\`
 On domain machine:
   gpupdate /force  (refresh policies)
   shutdown /r      (reboot to test)
-```
+\`\`\`
 
 ---
 
@@ -238,22 +238,22 @@ On domain machine:
 ### Issue: Sivaji Doesn't Start on Boot
 
 **Check 1: Startup Folder**
-```bash
+\`\`\`bash
 dir "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 # Verify Sivaji shortcut exists
-```
+\`\`\`
 
 **Check 2: Registry Entry (Method 2)**
-```bash
+\`\`\`bash
 regedit
 # Navigate to Run key and verify entry
-```
+\`\`\`
 
 **Check 3: Event Viewer**
-```
+\`\`\`
 Event Viewer → Windows Logs → System
 Look for errors related to python.exe or startup scripts
-```
+\`\`\`
 
 ### Issue: Keyboard Still Works (Alt+Tab, Ctrl+Alt+Del)
 
@@ -280,13 +280,13 @@ Look for errors related to python.exe or startup scripts
 
 **Solution**: Use full path to Python executable
 
-```bash
+\`\`\`bash
 # Instead of:
 python main.py --windows-install
 
 # Use:
 "C:\Program Files\Python311\python.exe" "C:\path\to\sivaji\main.py" --windows-install
-```
+\`\`\`
 
 ---
 
@@ -296,7 +296,7 @@ python main.py --windows-install
 
 Create `windows\.env`:
 
-```
+\`\`\`
 # Startup behavior
 SIVAJI_LOGON_TIMEOUT=60
 SIVAJI_STARTUP_DELAY=5000
@@ -313,7 +313,7 @@ SIVAJI_DISABLE_KEYS=true
 # Logging
 SIVAJI_AUDIT_LOG_PATH=C:\Users\Public\Logs\SivajiAudit.log
 SIVAJI_DEBUG=false
-```
+\`\`\`
 
 ---
 
@@ -322,35 +322,35 @@ SIVAJI_DEBUG=false
 ### For Production Deployment
 
 1. **Code Signing**
-   ```
+   \`\`\`
    Sign DLL with EV certificate
    Verify signatures before execution
-   ```
+   \`\`\`
 
 2. **BitLocker Integration**
-   ```
+   \`\`\`
    Encrypt system drive with BitLocker
    Store encryption key in TPM
    Sivaji runs before BitLocker unlock
-   ```
+   \`\`\`
 
 3. **TPM 2.0 Support**
-   ```
+   \`\`\`
    Store encryption keys in TPM
    Prevents key extraction from disk
-   ```
+   \`\`\`
 
 4. **Secure Boot**
-   ```
+   \`\`\`
    Ensure UEFI Secure Boot enabled
    Only signed bootloaders and drivers load
-   ```
+   \`\`\`
 
 5. **Windows Defender Integration**
-   ```
+   \`\`\`
    Register credential provider with Defender
    Exclude from scanning (prevent interference)
-   ```
+   \`\`\`
 
 ---
 

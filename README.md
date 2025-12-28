@@ -28,28 +28,28 @@ Sivaji is a complete computer security system that:
 ## Quick Start
 
 ### 1. Install
-```bash
+\`\`\`bash
 pip install -r requirements.txt
-```
+\`\`\`
 
 ### 2. Setup Developer Fail-Safe (First Time Only)
-```bash
+\`\`\`bash
 python main.py --mode setup-developer-secret
 # Enter a secure 12+ character secret
-```
+\`\`\`
 
 ### 3. Enroll Your Voice
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "authorized_user"
 # Speak 5 prompted sentences
-```
+\`\`\`
 
 ### 4. Authenticate
-```bash
+\`\`\`bash
 python main.py
 # Speak the random sentence
 # Access granted in ~1.5 seconds
-```
+\`\`\`
 
 ## Developer Fail-Safe System
 
@@ -64,11 +64,11 @@ An emergency access mechanism that activates ONLY when:
 ### How to Use (Developer Only)
 
 #### Step 1: Request One-Time Key (OTK)
-```bash
+\`\`\`bash
 python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 # OTK: a3f2b8c9d1e4f6a2b5c8d1e4f6a2b5c8d1e4f...
 # Valid for 15 minutes (single-use only)
-```
+\`\`\`
 
 #### Step 2: Input Fail-Safe Credentials
 When system failure occurs:
@@ -102,7 +102,7 @@ Rate limits:
 
 ## Project Structure
 
-```
+\`\`\`
 sivaji-security-system/
 ├── main.py                              # Entry point
 ├── requirements.txt                     # Dependencies
@@ -158,31 +158,31 @@ sivaji-security-system/
 │
 └── demo/
     └── DEMO.md                        # Usage examples
-```
+\`\`\`
 
 ## CLI Commands
 
 ### Authentication
-```bash
+\`\`\`bash
 python main.py                          # Normal authentication
 python main.py --enable-face            # Multi-biometric (face)
 python main.py --enable-iris            # Multi-biometric (iris)
-```
+\`\`\`
 
 ### Developer Fail-Safe
-```bash
+\`\`\`bash
 python main.py --mode setup-developer-secret     # Setup secret
 python main.py --mode request-otk --failure-type MICROPHONE_FAILURE  # Generate OTK
 python main.py --mode check-failsafe-status      # Check status
 python main.py --mode disable-failsafe           # Disable
-```
+\`\`\`
 
 ### Enrollment & Configuration
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "newuser"  # Enroll voice
 python main.py --mode config                       # Configure system
 python main.py --mode test                         # Run diagnostics
-```
+\`\`\`
 
 ## Documentation
 
@@ -276,6 +276,6 @@ This is a research/educational project. For production deployment:
 **Built with ❤️ for final-year projects, research demos, and enterprise security prototypes.**
 
 **Last Updated**: January 2025 | **Version**: 2.0 (Production Ready with Developer Fail-Safe)
-```
+\`\`\`
 
 Now let me create the comprehensive DEVELOPER_OVERRIDE.md file I started earlier (it's already created above in the fail-safe module section). Let me update the SECURITY_MODEL.md to include fail-safe:

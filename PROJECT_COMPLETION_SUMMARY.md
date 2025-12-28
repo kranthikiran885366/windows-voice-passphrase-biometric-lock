@@ -92,7 +92,7 @@
 
 ### File Structure
 
-```
+\`\`\`
 sivaji-security-system/
 ├── main.py                          # Entry point with multi-mode support
 ├── requirements.txt                 # All dependencies (50+ packages)
@@ -156,7 +156,7 @@ sivaji-security-system/
 ├── enrollments/                    # User biometric profiles (encrypted)
 ├── logs/                           # System and audit logs (encrypted)
 └── assets/                         # Icons, sounds, 3D assets
-```
+\`\`\`
 
 ### Technology Stack
 

@@ -50,12 +50,12 @@ Ensures voice is real-time, not recorded playback.
    - Playback has static noise
 
 **Liveness Score Calculation:**
-```
+\`\`\`
 liveness = 0.35 * f0_variation 
          + 0.25 * spectral_variation 
          + 0.25 * echo_liveness 
          + 0.15 * noise_liveness
-```
+\`\`\`
 
 Threshold: > 0.5 (50% confidence)
 
@@ -65,7 +65,7 @@ Threshold: > 0.5 (50% confidence)
 
 #### Model Architecture: CNN + LSTM
 
-```
+\`\`\`
 Input: (batch, 13, 50, 1)  # MFCC features
   ↓
 Conv2D(32, 3×3) → ReLU → BatchNorm → MaxPool(2,2)
@@ -83,7 +83,7 @@ Dense(512) → ReLU → BatchNorm  [SPEAKER EMBEDDING]
 Dense(256) → ReLU → Dropout(0.3)
   ↓
 Dense(num_speakers+1) → Softmax  [CLASSIFICATION]
-```
+\`\`\`
 
 **Key Design Choices:**
 - **CNN for spectro-temporal features**: Captures local patterns
@@ -113,7 +113,7 @@ Dense(num_speakers+1) → Softmax  [CLASSIFICATION]
 **Module:** `voice_auth/verification_pipeline.py`
 
 **Flow:**
-```
+\`\`\`
 Live Voice Audio
     ↓
 [Preprocessing]
@@ -143,7 +143,7 @@ Live Voice Audio
         AUTHENTICATED
     else:
         DENIED
-```
+\`\`\`
 
 **Thresholds:**
 - Authentication: 98% confidence (high security)
@@ -169,7 +169,7 @@ Live Voice Audio
 #### Audit Logger (`audit_logger.py`)
 
 **Logged Events:**
-```json
+\`\`\`json
 {
   "timestamp": "2025-12-28T15:30:45Z",
   "username": "authorized_user",
@@ -179,7 +179,7 @@ Live Voice Audio
   "similarity_score": 0.998,
   "reason": "Authenticated"
 }
-```
+\`\`\`
 
 **Storage:** Encrypted JSON lines format
 **Retention:** Indefinite (supports log rotation)
@@ -192,7 +192,7 @@ Live Voice Audio
 - Reset on success
 
 **Lockout State:**
-```json
+\`\`\`json
 {
   "authorized_user": {
     "failed_attempts": 2,
@@ -200,7 +200,7 @@ Live Voice Audio
     "locked_until": null
   }
 }
-```
+\`\`\`
 
 ### 5. UI/UX Layer
 
@@ -273,7 +273,7 @@ Live Voice Audio
 
 ### Enrollment Process
 
-```
+\`\`\`
 User Input (Voice)
     ↓
 Audio Recording
@@ -289,11 +289,11 @@ Compute Mean Embedding
 Encryption Manager (AES-256)
     ↓
 Save to: security/credentials/authorized_user.enc
-```
+\`\`\`
 
 ### Authentication Process
 
-```
+\`\`\`
 User Input (Voice)
     ↓
 Audio Recording
@@ -321,13 +321,13 @@ Threshold >= 0.98?
             Check if >= 3 failures?
             ├─ YES → Lockout 15 minutes
             └─ NO → Allow retry
-```
+\`\`\`
 
 ## Modular Design
 
 Each component is independent and testable:
 
-```
+\`\`\`
 ┌─────────────────────────────────────────┐
 │         UI Layer (PyQt5)                 │
 │         lockscreen.py                    │
@@ -355,7 +355,7 @@ Each component is independent and testable:
 │ Voice Proc.  │    │ Audit Logger │
 │ (MFCC)       │    │ Lockout Mgr  │
 └──────────────┘    └──────────────┘
-```
+\`\`\`
 
 ## Security Properties
 

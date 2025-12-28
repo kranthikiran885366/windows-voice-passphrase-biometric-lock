@@ -34,9 +34,9 @@ Launches Sivaji early in Windows startup via Run registry key.
 3. System will register startup hook
 
 **Registry Location:**
-```
+\`\`\`
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-```
+\`\`\`
 
 ### Method 3: Custom Logon Provider (Advanced)
 
@@ -55,11 +55,11 @@ See `SYSTEM_ARCHITECTURE.md` for credential provider design.
 ### Environment Variables
 
 Create `windows/.env`:
-```
+\`\`\`
 SIVAJI_LOGON_TIMEOUT=60
 SIVAJI_LOCKOUT_DURATION=900
 SIVAJI_DISABLE_BYPASS=true
-```
+\`\`\`
 
 ### Group Policy (Enterprise)
 
@@ -125,9 +125,9 @@ For domain-joined computers:
 
 To remove Sivaji from startup:
 
-```bash
+\`\`\`bash
 python main.py --windows-uninstall
-```
+\`\`\`
 
 Or manually:
 
@@ -148,9 +148,9 @@ Or manually:
 3. Check audit logs
 
 ### Test 3: Verify Audit Trail
-```bash
+\`\`\`bash
 python scripts/check_audit_logs.py
-```
+\`\`\`
 
 ## References
 

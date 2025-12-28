@@ -2,7 +2,7 @@
 
 ## Quick Start (5 Minutes)
 
-```bash
+\`\`\`bash
 # 1. Install
 pip install -r requirements.txt
 
@@ -16,11 +16,11 @@ python main.py --mode enroll --username "authorized_user"
 python main.py
 
 # Done!
-```
+\`\`\`
 
 ## Emergency Fail-Safe (In Crisis)
 
-```bash
+\`\`\`bash
 # 1. Request OTK
 python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 
@@ -28,7 +28,7 @@ python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 # - Enter developer secret
 # - Press Ctrl+Alt+F12+D
 # - Enter OTK
-```
+\`\`\`
 
 ## Common Commands
 
@@ -57,13 +57,13 @@ python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 
 ## File Locations
 
-```
+\`\`\`
 /security/developer_failsafe.py     → Fail-safe implementation
 /data/failsafe_state.enc            → Encrypted fail-safe state
 /logs/failsafe_events.enc           → Encrypted audit log
 /docs/DEVELOPER_OVERRIDE.md         → Complete guide
 /docs/INTEGRATION_GUIDE.md          → Deployment procedures
-```
+\`\`\`
 
 ## Troubleshooting
 

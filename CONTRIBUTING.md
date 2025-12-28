@@ -4,14 +4,14 @@ We welcome contributions! This project is open-source and community-driven.
 
 ## Development Setup
 
-```bash
+\`\`\`bash
 git clone https://github.com/YOUR_REPO/sivaji-security-system
 cd sivaji-security-system
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 pip install -r dev-requirements.txt  # Testing, linting
-```
+\`\`\`
 
 ## Making Changes
 

@@ -136,52 +136,52 @@
 ## Reading Paths by Role
 
 ### Authorized User (Non-Technical)
-```
+\`\`\`
 1. README.md (Quick Start section)
 2. QUICK_REFERENCE.md (Commands section)
 3. INTEGRATION_GUIDE.md (Normal Authentication)
 4. Keep QUICK_REFERENCE.md as bookmark
-```
+\`\`\`
 **Total Time**: 15-20 minutes
 
 ### System Administrator
-```
+\`\`\`
 1. README.md (Full read)
 2. DEPLOYMENT_CHECKLIST.md (Follow step-by-step)
 3. INTEGRATION_GUIDE.md (Operational Procedures)
 4. SECURITY_MODEL.md (Security understanding)
 5. Keep INTEGRATION_GUIDE.md as reference
-```
+\`\`\`
 **Total Time**: 2-3 hours
 
 ### Security Officer / Auditor
-```
+\`\`\`
 1. SECURITY_MODEL.md (Full read)
 2. THREAT_MODEL.md (Full read)
 3. DEPLOYMENT_CHECKLIST.md (Security Testing)
 4. DEVELOPER_OVERRIDE.md (Fail-Safe section)
 5. INTEGRATION_GUIDE.md (Audit Logging)
-```
+\`\`\`
 **Total Time**: 2-3 hours
 
 ### Developer / Engineer
-```
+\`\`\`
 1. SYSTEM_ARCHITECTURE.md (Full read)
 2. ALGORITHMS_USED.md (Full read)
 3. Source code files (main.py, ai_models/, voice_auth/)
 4. SECURITY_MODEL.md (Understanding constraints)
 5. FUTURE_ENHANCEMENTS.md (Contributing ideas)
-```
+\`\`\`
 **Total Time**: 3-4 hours
 
 ### Emergency Response (Fail-Safe Needed)
-```
+\`\`\`
 1. DEVELOPER_OVERRIDE.md → Activation Process
 2. QUICK_REFERENCE.md → Emergency Fail-Safe section
 3. INTEGRATION_GUIDE.md → Emergency Fail-Safe Activation
 4. Execute fail-safe procedure
 5. Follow INTEGRATION_GUIDE.md → Resolve System Issue
-```
+\`\`\`
 **Total Time**: 10-15 minutes
 
 ---
@@ -212,7 +212,7 @@
 
 ## File Organization
 
-```
+\`\`\`
 sivaji-security-system/
 ├── README.md                          # START HERE
 ├── QUICK_REFERENCE.md                 # Bookmarks for commands
@@ -240,7 +240,7 @@ sivaji-security-system/
     ├── main.py
     ├── security/developer_failsafe.py
     └── [Other modules]
-```
+\`\`\`
 
 ---
 
@@ -313,6 +313,6 @@ Use these keywords when searching documents:
 **Total Documentation**: 10,000+ lines across 12 files
 **Estimated Total Read Time**: 8-15 hours (depending on role)
 **Classification**: Technical Documentation - All Users
-```
+\`\`\`
 
 Excellent! Now I'll create one final file - a comprehensive project completion report:

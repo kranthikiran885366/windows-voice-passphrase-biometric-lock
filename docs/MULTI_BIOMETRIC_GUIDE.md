@@ -12,36 +12,36 @@ The Sivaji Security System supports advanced multi-biometric authentication comb
 
 ### 1. Voice Only (Default)
 
-```bash
+\`\`\`bash
 python main.py --mode auth
-```
+\`\`\`
 
 ### 2. Voice + Face
 
-```bash
+\`\`\`bash
 python main.py --mode auth --enable-face
 python main.py --mode enroll --username "user1" --enable-face
-```
+\`\`\`
 
 ### 3. Voice + Iris
 
-```bash
+\`\`\`bash
 python main.py --mode auth --enable-iris
 python main.py --mode enroll --username "user1" --enable-iris
-```
+\`\`\`
 
 ### 4. Voice + Face + Iris
 
-```bash
+\`\`\`bash
 python main.py --mode auth --enable-face --enable-iris
 python main.py --mode enroll --username "user1" --enable-face --enable-iris
-```
+\`\`\`
 
 ## Configuration
 
 Edit `config/system_config.json`:
 
-```json
+\`\`\`json
 {
   "biometric": {
     "enable_voice": true,
@@ -54,24 +54,24 @@ Edit `config/system_config.json`:
     "behavior_weight": 0.10
   }
 }
-```
+\`\`\`
 
 ## Enrollment Process
 
 ### Single Biometric (Voice)
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "john_doe"
 # Captures 5 voice samples
 # Duration: ~2 minutes
-```
+\`\`\`
 
 ### Multi-Biometric
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "john_doe" --enable-face --enable-iris
 # Captures: 5 voice samples + 10 face images + 5 iris scans
 # Duration: ~5 minutes
 # Requires: Microphone, Webcam
-```
+\`\`\`
 
 ## Feature Details
 
@@ -125,13 +125,13 @@ python main.py --mode enroll --username "john_doe" --enable-face --enable-iris
 
 ## Testing Multi-Biometric
 
-```bash
+\`\`\`bash
 # Test all components
 python main.py --mode test
 
 # Test specific biometric
 python main.py --mode test --enable-face
-```
+\`\`\`
 
 ## Troubleshooting
 
@@ -151,7 +151,7 @@ python main.py --mode test --enable-face
 
 ### Custom Weights
 
-```json
+\`\`\`json
 {
   "biometric": {
     "voice_weight": 0.60,
@@ -160,18 +160,18 @@ python main.py --mode test --enable-face
     "behavior_weight": 0.10
   }
 }
-```
+\`\`\`
 
 ### Confidence Thresholds
 
-```json
+\`\`\`json
 {
   "security": {
     "voice_confidence_threshold": 0.95,
     "liveness_confidence_threshold": 0.85
   }
 }
-```
+\`\`\`
 
 ## Performance Benchmarks
 
@@ -181,6 +181,6 @@ python main.py --mode test --enable-face
 | Accuracy | 98% | 98.5% | 99% |
 | False Acceptance | 0.5% | 0.2% | 0.1% |
 | False Rejection | 2% | 1.5% | 1% |
-```
+\`\`\`
 
 Now let me create the deployment and setup guide:

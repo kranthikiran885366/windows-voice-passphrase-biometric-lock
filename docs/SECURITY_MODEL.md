@@ -12,7 +12,7 @@
 
 ## Trust Model
 
-```
+\`\`\`
 ┌──────────────────────────────────────────┐
 │   Trusted Computing Base (TCB)           │
 │  ┌────────────────────────────────────┐  │
@@ -34,7 +34,7 @@
 │  │ Lockout Counters                   │  │
 │  └────────────────────────────────────┘  │
 └──────────────────────────────────────────┘
-```
+\`\`\`
 
 ## Threat Model
 
@@ -237,7 +237,7 @@
 
 ### Attack: Gain Unauthorized Access
 
-```
+\`\`\`
 Gain Unauthorized Access
 ├─ [A1] Spoof Voice
 │  ├─ [A1.1] Playback Attack
@@ -269,11 +269,11 @@ Gain Unauthorized Access
 └─ [A5] Access Encryption Key
    └─ Mitigated by: Fernet encryption + HMAC
            Tamper detection
-```
+\`\`\`
 
 ### Attack: Abuse Developer Fail-Safe
 
-```
+\`\`\`
 Abuse Developer Fail-Safe
 ├─ [A6.1] Guess Developer Secret
 │  └─ Mitigated by: PBKDF2 (100k iterations) (100%)
@@ -294,7 +294,7 @@ Abuse Developer Fail-Safe
 └─ [A6.5] Replay Failsafe Activation
    └─ Mitigated by: Timestamp validation (100%)
            Encrypted event log
-```
+\`\`\`
 
 ## Compliance & Standards
 
@@ -358,6 +358,6 @@ Abuse Developer Fail-Safe
 **Last Updated**: January 2025
 **Version**: 2.0 (With Developer Fail-Safe)
 **Classification**: Technical Documentation - Use in Design & Threat Modeling
-```
+\`\`\`
 
 Perfect! Now let me create one more critical file - a comprehensive integration guide:

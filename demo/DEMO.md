@@ -3,7 +3,7 @@
 ## Quick Start (5 minutes)
 
 ### 1. Installation
-```bash
+\`\`\`bash
 # Clone repository
 git clone https://github.com/YOUR_USERNAME/sivaji-security-system
 cd sivaji-security-system
@@ -13,27 +13,27 @@ pip install -r requirements.txt
 
 # Install PyQt5 (if not in requirements.txt)
 pip install PyQt5
-```
+\`\`\`
 
 ### 2. First-Time Setup
-```bash
+\`\`\`bash
 # Enroll your voice (5 sentences, ~2 minutes)
 python main.py --mode enroll --username "authorized_user"
 
 # Follow on-screen prompts
 # Speak each sentence clearly
 # System will create encrypted voice profile
-```
+\`\`\`
 
 ### 3. Authenticate
-```bash
+\`\`\`bash
 # Run authentication screen
 python main.py
 
 # Click "START AUTHENTICATION"
 # Speak the sentence displayed
 # System will verify voice in ~1.5 seconds
-```
+\`\`\`
 
 ## Demo Scenarios
 
@@ -57,7 +57,7 @@ python main.py
 - ✅ App closes after 2 seconds
 
 **Screenshot:**
-```
+\`\`\`
 ╔════════════════════════════════════╗
 ║         SIVAJI                     ║
 ║   VOICE BIOMETRIC AUTHENTICATION   ║
@@ -69,7 +69,7 @@ python main.py
 ║  Liveness: 92.3%                   ║
 ║                                    ║
 ╚════════════════════════════════════╝
-```
+\`\`\`
 
 ### Scenario 2: Failed Authentication (3 minutes)
 
@@ -91,7 +91,7 @@ python main.py
 - ✅ Button re-enabled after 2 seconds
 
 **Screenshot:**
-```
+\`\`\`
 ╔════════════════════════════════════╗
 ║         SIVAJI                     ║
 ║   VOICE BIOMETRIC AUTHENTICATION   ║
@@ -106,7 +106,7 @@ python main.py
 ║  [START AUTHENTICATION]            ║
 ║                                    ║
 ╚════════════════════════════════════╝
-```
+\`\`\`
 
 ### Scenario 3: Lockout After 3 Failures (5 minutes)
 
@@ -128,7 +128,7 @@ python main.py
 - ✅ Check audit log: `security/logs/audit.log` (encrypted)
 
 **Audit Log Entry (decrypted):**
-```json
+\`\`\`json
 {
   "timestamp": "2025-12-28T15:30:45Z",
   "username": "authorized_user",
@@ -137,7 +137,7 @@ python main.py
   "liveness_score": 0.88,
   "similarity_score": 0.28
 }
-```
+\`\`\`
 
 ## Advanced Demo: Liveness Detection
 
@@ -151,7 +151,7 @@ python main.py
 3. Play back recording during next authentication
 
 **Try This:**
-```bash
+\`\`\`bash
 # Terminal 1: Run Sivaji
 python main.py
 
@@ -161,7 +161,7 @@ arecord -f dat -t wav recorded_voice.wav
 
 # Then play it back during authentication:
 aplay recorded_voice.wav
-```
+\`\`\`
 
 **Expected Result:**
 - ✅ System should REJECT the playback
@@ -176,7 +176,7 @@ aplay recorded_voice.wav
 
 ## Demo: Viewing Encrypted Audit Logs
 
-```bash
+\`\`\`bash
 # Decrypt and view audit logs
 python -c "
 from security.audit_logger import AuditLogger
@@ -189,10 +189,10 @@ for log in logs:
     print(f'  Confidence: {log[\"confidence\"]:.2%}')
     print()
 "
-```
+\`\`\`
 
 **Output:**
-```
+\`\`\`
 2025-12-28T15:30:45Z: authorized_user - ✓
   Confidence: 98.50%
 
@@ -201,11 +201,11 @@ for log in logs:
 
 2025-12-28T15:28:15Z: authorized_user - ✓
   Confidence: 97.80%
-```
+\`\`\`
 
 ## Demo: Training Custom Model
 
-```bash
+\`\`\`bash
 # After enrolling multiple samples
 python ai_models/train_model.py --epochs 50 --batch-size 16
 
@@ -224,13 +224,13 @@ python ai_models/train_model.py --epochs 50 --batch-size 16
 # ...
 # ✓ Test Accuracy: 98.50%
 # ✓ Model saved to ai_models/models/speaker_recognition.h5
-```
+\`\`\`
 
 ## Performance Testing
 
 ### Measure Authentication Speed
 
-```python
+\`\`\`python
 import time
 from voice_auth.verification_pipeline import VerificationPipeline
 import numpy as np
@@ -252,20 +252,20 @@ avg_time = np.mean(times)
 print(f"Average authentication time: {avg_time*1000:.1f}ms")
 print(f"95th percentile: {np.percentile(times, 95)*1000:.1f}ms")
 print(f"Target: < 2000ms ✓")
-```
+\`\`\`
 
 **Expected Output:**
-```
+\`\`\`
 Average authentication time: 1250.5ms
 95th percentile: 1450.2ms
 Target: < 2000ms ✓
-```
+\`\`\`
 
 ## Security Testing
 
 ### Brute Force Protection
 
-```bash
+\`\`\`bash
 # Simulate 5 failed attempts
 for i in {1..5}; do
   python main.py --simulate-failure &
@@ -280,14 +280,14 @@ print(f'Locked: {lockout.is_locked(\"authorized_user\")}')
 print(f'Failed attempts: {lockout.get_failed_attempts(\"authorized_user\")}')
 print(f'Time remaining: {lockout.get_lockout_time_remaining(\"authorized_user\")}s')
 "
-```
+\`\`\`
 
 **Output:**
-```
+\`\`\`
 Locked: True
 Failed attempts: 3
 Time remaining: 899s
-```
+\`\`\`
 
 ## Demo Hardware Setup (Optional)
 
@@ -302,7 +302,7 @@ To test with actual voice input instead of simulation:
 **Code Changes:**
 In `ui/lockscreen.py`, replace `simulate_voice_capture()`:
 
-```python
+\`\`\`python
 def simulate_voice_capture(self):
     # OLD: Simulated audio
     # simulated_audio = np.random.randn(16000 * 3) * 0.1
@@ -334,13 +334,13 @@ def simulate_voice_capture(self):
     # Perform authentication
     result = self.verifier.verify_voice(audio_data)
     ...
-```
+\`\`\`
 
 ## Windows Integration Demo
 
 ### Testing Startup Script
 
-```bash
+\`\`\`bash
 # Method 1: Startup Folder
 mkdir "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 cd %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
@@ -350,11 +350,11 @@ powershell -Command "$WshShell = New-Object -ComObject WScript.Shell; $Shortcut 
 
 # Restart Windows
 shutdown /r /t 60 /c "Testing Sivaji Startup"
-```
+\`\`\`
 
 ### Testing Registry Method
 
-```bash
+\`\`\`bash
 # As Administrator
 python main.py --windows-install
 
@@ -364,45 +364,45 @@ python main.py --windows-install
 
 # Restart to test
 shutdown /r
-```
+\`\`\`
 
 ## Troubleshooting Demo Issues
 
 ### Issue: "ImportError: No module named cryptography"
 
 **Solution:**
-```bash
+\`\`\`bash
 pip install cryptography
-```
+\`\`\`
 
 ### Issue: "No audio device found"
 
 **Solution:**
-```bash
+\`\`\`bash
 # Disable microphone simulation (use simulated audio instead)
 # In lockscreen.py, audio generation is already in place
-```
+\`\`\`
 
 ### Issue: "Model file not found"
 
 **Solution:**
-```bash
+\`\`\`bash
 # Train a new model
 python ai_models/train_model.py
 
 # Or download pre-trained model:
 # wget https://github.com/YOUR_REPO/releases/download/v1.0/speaker_recognition.h5 -O ai_models/models/
-```
+\`\`\`
 
 ### Issue: "Encryption key not found"
 
 **Solution:**
-```bash
+\`\`\`bash
 # Key is auto-generated on first run
 # If missing, delete credentials folder and re-enroll:
 rm -rf security/credentials/*
 python main.py --enroll
-```
+\`\`\`
 
 ## Live Demo Checklist
 
@@ -420,7 +420,7 @@ Before presenting to an audience:
 
 ## Recording a Demo Video
 
-```bash
+\`\`\`bash
 # Use OBS or similar to record:
 # 1. Screen recording of Sivaji UI
 # 2. Audio of your voice during authentication
@@ -433,7 +433,7 @@ Before presenting to an audience:
 # - Lockout after 3 failures
 # - Audit log viewing
 # - Architecture diagram
-```
+\`\`\`
 
 ---
 
@@ -448,8 +448,8 @@ Have questions about the demo?
 
 **Ready to see Sivaji in action?**
 
-```bash
+\`\`\`bash
 python main.py
-```
+\`\`\`
 
 **Welcome to the future of voice security.**

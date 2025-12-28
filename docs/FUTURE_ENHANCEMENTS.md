@@ -85,7 +85,7 @@
 ## Research Directions
 
 ### 1. Adversarial Robustness
-```
+\`\`\`
 Problem: Can adversarial audio examples fool the model?
 Example: Adding imperceptible noise to audio can cause misclassification
 
@@ -93,37 +93,37 @@ Research:
 - Generate adversarial examples
 - Test model robustness
 - Implement adversarial training
-```
+\`\`\`
 
 ### 2. Domain Adaptation
-```
+\`\`\`
 Problem: Model trained in clean room fails in noisy environment
 
 Solution:
 - Train on diverse acoustic conditions
 - Data augmentation (noise, reverb, compression)
 - Domain adversarial training
-```
+\`\`\`
 
 ### 3. Open-Set Speaker Recognition
-```
+\`\`\`
 Problem: System currently closed-set (only 1 speaker)
 
 Enhancement:
 - Support unknown speaker detection
 - Threshold-based acceptance
 - Novelty detection methods
-```
+\`\`\`
 
 ### 4. Zero-Resource Speaker Verification
-```
+\`\`\`
 Problem: Requires enrollment phase
 
 Alternative:
 - Extract speaker ID from speaker profiling
 - Without explicit enrollment
 - Self-supervised learning
-```
+\`\`\`
 
 ## Testing & Evaluation
 
@@ -147,7 +147,7 @@ Alternative:
 
 ### Metrics to Track
 
-```
+\`\`\`
 Real-world Performance:
 - FAR (False Acceptance Rate): < 0.5%
 - FRR (False Rejection Rate): < 2%
@@ -158,7 +158,7 @@ Robustness Metrics:
 - Spoofing detection rate: > 90%
 - Adversarial robustness: > 85%
 - Domain adaptation accuracy: > 90%
-```
+\`\`\`
 
 ## Community & Open Source
 
@@ -181,7 +181,7 @@ Robustness Metrics:
 
 ## Product Roadmap
 
-```
+\`\`\`
 Q1 2025: Multi-speaker support, DPAPI integration
 Q2 2025: Mobile app, real microphone input
 Q3 2025: Face fusion, cloud backup
@@ -190,7 +190,7 @@ Q4 2025: Credential Provider (Windows), Linux PAM
 2026: HSM integration, advanced liveness, mobile biometrics
 
 2027+: Commercial product, enterprise features
-```
+\`\`\`
 
 ## Success Metrics
 

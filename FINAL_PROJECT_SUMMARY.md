@@ -218,26 +218,26 @@ Implements a **multi-layer emergency access mechanism** that:
 ## CLI Interface
 
 ### Authentication
-```bash
+\`\`\`bash
 python main.py                          # Normal authentication
 python main.py --enable-face            # Multi-biometric (face)
 python main.py --enable-iris            # Multi-biometric (iris)
-```
+\`\`\`
 
 ### Developer Fail-Safe
-```bash
+\`\`\`bash
 python main.py --mode setup-developer-secret              # Setup
 python main.py --mode request-otk --failure-type TYPE    # Request OTK
 python main.py --mode check-failsafe-status              # Status
 python main.py --mode disable-failsafe                   # Disable
-```
+\`\`\`
 
 ### Management
-```bash
+\`\`\`bash
 python main.py --mode enroll --username "user"           # Enroll
 python main.py --mode config                             # Configure
 python main.py --mode test                               # Diagnose
-```
+\`\`\`
 
 ## Use Cases
 
@@ -397,6 +397,6 @@ Suitable for:
 **Total Development**: Complete system with all advanced features
 
 **Next Steps**: Deploy, test, audit, and extend based on requirements
-```
+\`\`\`
 
 Perfect! Now let me create one final file - a quick reference guide:

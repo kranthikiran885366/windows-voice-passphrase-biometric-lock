@@ -152,7 +152,7 @@
 
 If deployment fails or issues occur:
 
-```
+\`\`\`
 Step 1: Stop Sivaji system
 Step 2: Restore from backup:
         - enrollments_backup_YYYYMMDD/
@@ -161,7 +161,7 @@ Step 2: Restore from backup:
 Step 3: Verify restore with: python main.py --mode test
 Step 4: Re-authenticate to verify restoration
 Step 5: Document incident and root cause
-```
+\`\`\`
 
 ## Sign-Off
 
@@ -221,7 +221,7 @@ Step 5: Document incident and root cause
 
 ## Appendix: Command Reference
 
-```bash
+\`\`\`bash
 # Verification
 python main.py --mode test                      # System diagnostics
 python main.py --mode check-failsafe-status     # Fail-safe status
@@ -237,13 +237,13 @@ python main.py --mode config                    # Configure system
 # Normal Use
 python main.py                                  # Standard authentication
 python main.py --enable-face                    # Multi-biometric
-```
+\`\`\`
 
 ---
 
 **Version**: 1.0
 **Last Updated**: January 2025
 **Classification**: Deployment Guide - Internal Use Only
-```
+\`\`\`
 
 Perfect! Now let me create one final critical security document - the security deployment guide:

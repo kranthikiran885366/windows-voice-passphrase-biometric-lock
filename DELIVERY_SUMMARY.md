@@ -269,7 +269,7 @@
 
 ## 📦 Project Structure
 
-```
+\`\`\`
 sivaji-security-system/
 ├── main.py                    # Entry point
 ├── requirements.txt           # Dependencies
@@ -324,11 +324,11 @@ sivaji-security-system/
 │
 └── demo/                      # Demo & Testing
     └── DEMO.md
-```
+\`\`\`
 
 ## 🚀 Quick Start
 
-```bash
+\`\`\`bash
 # 1. Install
 pip install -r requirements.txt
 
@@ -340,7 +340,7 @@ python main.py
 
 # 4. Speak the sentence shown
 # ✓ Access granted in ~1.5 seconds!
-```
+\`\`\`
 
 ## 💾 What's Encrypted
 
@@ -360,7 +360,7 @@ python main.py
 
 ## 📈 Performance
 
-```
+\`\`\`
 Enrollment (5 samples): ~20 seconds
 - 5 recordings × 3-5 seconds each
 - MFCC extraction
@@ -377,7 +377,7 @@ Authentication: ~1.5 seconds
 
 Total shown to user: ~3-5 seconds (includes recording time)
 Processing time: ~1.5 seconds
-```
+\`\`\`
 
 ## 🎓 Academic Value
 
