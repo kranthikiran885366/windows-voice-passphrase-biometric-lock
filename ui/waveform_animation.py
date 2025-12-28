@@ -116,8 +116,8 @@ class WaveformWidget(QWidget):
             
             # Draw bar with gradient
             painter.fillRect(
-                x + 1, center_y - bar_height,
-                bar_width - 2, bar_height * 2,
+                int(x + 1), int(center_y - bar_height),
+                int(bar_width - 2), int(bar_height * 2),
                 color
             )
             
@@ -125,8 +125,8 @@ class WaveformWidget(QWidget):
             peak_height = self.peak_levels[i] * (height / 2 - 10)
             peak_color = QColor(100, 100, 100, 100)
             painter.fillRect(
-                x + 1, center_y - peak_height,
-                bar_width - 2, 2,
+                int(x + 1), int(center_y - peak_height),
+                int(bar_width - 2), 2,
                 peak_color
             )
         
@@ -134,4 +134,4 @@ class WaveformWidget(QWidget):
         pen = QPen(QColor('#7c3aed'), 1)
         pen.setDashPattern([5, 5])
         painter.setPen(pen)
-        painter.drawLine(0, center_y, width, center_y)
+        painter.drawLine(0, int(center_y), width, int(center_y))

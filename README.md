@@ -21,15 +21,23 @@
   Inspired by the Sivaji movie security interface, featuring military-grade speaker recognition with real-time liveness detection, Windows integration, and zero-knowledge voice storage.
 </p>
 
-## Overview
+---
+
+## 📋 Overview
+
+<div align="center">
 
 Sivaji is a complete computer security system that:
-- Authenticates users using voice biometrics (98%+ accuracy)
-- Detects spoofed/synthetic voices in real-time
-- Stores encrypted biometric data (never plaintext)
-- Provides emergency developer access for system failures
-- Integrates with Windows 10/11 login
-- Offers cinematic UI with Sivaji-movie aesthetic
+- 🎯 Authenticates users using voice biometrics (98%+ accuracy)
+- 🔍 Detects spoofed/synthetic voices in real-time
+- 🔐 Stores encrypted biometric data (never plaintext)
+- 🆘 Provides emergency developer access for system failures
+- 🖥️ Integrates with Windows 10/11 login
+- 🎬 Offers cinematic UI with Sivaji-movie aesthetic
+
+</div>
+
+---
 
 ## 🚀 Features
 
@@ -41,6 +49,9 @@ Sivaji is a complete computer security system that:
 | **Liveness Detection** | ✅ | Real-time pitch, frequency, and temporal variance analysis |
 | **Developer Fail-Safe** | ✅ | Emergency access mechanism (multi-layer authentication) |
 | **AES-256 Encryption** | ✅ | All biometric data encrypted with Fernet key management |
+| **Master Key Security** | ✅ | Centralized credential management with secure key storage |
+| **Failsafe State Management** | ✅ | Encrypted system state preservation for recovery |
+| **Enhanced Speaker Model** | ✅ | Improved AI model with better accuracy and performance |
 | **Cinematic UI** | ✅ | Full-screen PyQt5 lockscreen with animated waveforms |
 | **Sivaji-Style Voice Bot** | ✅ | Authoritative, offline TTS responses |
 | **Windows Integration** | ✅ | Pre-login lock screen on Windows 10/11 |
@@ -50,54 +61,63 @@ Sivaji is a complete computer security system that:
 
 </div>
 
+---
+
 ## 🚀 Quick Start
 
 <div align="center">
 
-### 1. Install
+### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Setup Developer Fail-Safe (First Time Only)
+### 2. Initialize Security System
 ```bash
 python main.py --mode setup-developer-secret
 # Enter a secure 12+ character secret
+python main.py --mode init-master-key
+# Initialize master key for credential management
 ```
 
 ### 3. Enroll Your Voice
 ```bash
 python main.py --mode enroll --username "authorized_user"
-# Speak 5 prompted sentences
+# Speak 5 prompted sentences clearly
 ```
 
 ### 4. Authenticate
 ```bash
 python main.py
-# Speak the random sentence
+# Speak the random sentence displayed
 # Access granted in ~1.5 seconds
 ```
 
 </div>
 
-## Developer Fail-Safe System
+---
+
+## 🛡️ Developer Fail-Safe System
+
+<div align="center">
 
 ### What is it?
-
 An emergency access mechanism that activates ONLY when:
-- Microphone hardware fails
-- AI model crashes
-- Voice authentication system becomes unavailable
-- Critical system errors occur
+- 🎤 Microphone hardware fails
+- 🤖 AI model crashes
+- 🔊 Voice authentication system becomes unavailable
+- ⚠️ Critical system errors occur
+
+</div>
 
 ### How to Use (Developer Only)
 
 #### Step 1: Request One-Time Key (OTK)
-\`\`\`bash
+```bash
 python main.py --mode request-otk --failure-type MICROPHONE_FAILURE
 # OTK: a3f2b8c9d1e4f6a2b5c8d1e4f6a2b5c8d1e4f...
 # Valid for 15 minutes (single-use only)
-\`\`\`
+```
 
 #### Step 2: Input Fail-Safe Credentials
 When system failure occurs:
@@ -110,28 +130,43 @@ System announces: *"Developer override authenticated. Emergency access granted."
 
 ### Security Properties
 
-Multi-factor authentication required:
-1. **Developer Secret** - PBKDF2-SHA256 hashed, 100,000 iterations
-2. **One-Time Key** - 32-byte cryptographic random, 15-minute validity
-3. **Physical Confirmation** - Ctrl+Alt+F12+D key sequence
+<div align="center">
 
-Rate limits:
+| Factor | Type | Security |
+|--------|------|----------|
+| **Developer Secret** | Knowledge | PBKDF2-SHA256 hashed, 100,000 iterations |
+| **One-Time Key** | Possession | 32-byte cryptographic random, 15-minute validity |
+| **Physical Confirmation** | Presence | Ctrl+Alt+F12+D key sequence |
+
+**Rate Limits:**
 - Maximum 3 uses per session
 - 30-minute maximum duration
 - Failed attempts logged and encrypted
 - Tamper detection enabled
 
-## System Requirements
+</div>
 
-- **OS**: Windows 10/11 or Linux/macOS for development
-- **Python**: 3.9+
-- **RAM**: 4GB minimum (8GB recommended for model training)
-- **Microphone**: Required for voice enrollment and authentication
-- **GPU**: Optional (CUDA for TensorFlow if available)
+---
 
-## Project Structure
+## 💻 System Requirements
 
-\`\`\`
+<div align="center">
+
+| Component | Requirement | Notes |
+|-----------|-------------|-------|
+| **OS** | Windows 10/11 or Linux/macOS | For development |
+| **Python** | 3.9+ | Required |
+| **RAM** | 4GB minimum | 8GB recommended for model training |
+| **Microphone** | Required | For voice enrollment and authentication |
+| **GPU** | Optional | CUDA for TensorFlow if available |
+
+</div>
+
+---
+
+## 📁 Project Structure
+
+```
 sivaji-security-system/
 ├── main.py                              # Entry point
 ├── requirements.txt                     # Dependencies
@@ -139,11 +174,13 @@ sivaji-security-system/
 │
 ├── security/
 │   ├── developer_failsafe.py           # Developer fail-safe system
-│   ├── encryption.py                   # AES-256 encryption
+│   ├── encryption.py                   # AES-256 encryption (Enhanced)
 │   ├── audit_logger.py                 # Encrypted logging
 │   ├── lockout_manager.py              # Failed attempt tracking
 │   ├── threat_detection.py             # Threat analysis
-│   └── notification_system.py          # Email/SMS alerts
+│   ├── notification_system.py          # Email/SMS alerts
+│   └── credentials/
+│       └── .master_key                 # Secure master key storage
 │
 ├── ui/
 │   ├── lockscreen.py                   # Main authentication UI
@@ -161,11 +198,14 @@ sivaji-security-system/
 │   └── passive_authentication.py      # Behavior monitoring
 │
 ├── ai_models/
-│   ├── speaker_model.py               # CNN+LSTM architecture
+│   ├── speaker_model.py               # CNN+LSTM architecture (Enhanced)
 │   ├── face_recognition_model.py      # Face recognition
 │   ├── iris_recognition_model.py      # Iris recognition
 │   ├── model_inference.py             # Real-time inference
 │   └── train_model.py                 # Training script
+│
+├── data/
+│   └── failsafe_state.enc             # Encrypted system state backup
 │
 ├── config/
 │   └── system_config.py               # Configuration management
@@ -187,42 +227,57 @@ sivaji-security-system/
 │
 └── demo/
     └── DEMO.md                        # Usage examples
-\`\`\`
+```
 
-## CLI Commands
+---
+
+## 🖥️ CLI Commands
 
 ### Authentication
-\`\`\`bash
+```bash
 python main.py                          # Normal authentication
 python main.py --enable-face            # Multi-biometric (face)
 python main.py --enable-iris            # Multi-biometric (iris)
-\`\`\`
+```
 
-### Developer Fail-Safe
-\`\`\`bash
+### Developer Fail-Safe & Security
+```bash
 python main.py --mode setup-developer-secret     # Setup secret
+python main.py --mode init-master-key            # Initialize master key
 python main.py --mode request-otk --failure-type MICROPHONE_FAILURE  # Generate OTK
 python main.py --mode check-failsafe-status      # Check status
+python main.py --mode backup-system-state        # Create encrypted backup
+python main.py --mode restore-system-state       # Restore from backup
 python main.py --mode disable-failsafe           # Disable
-\`\`\`
+```
 
 ### Enrollment & Configuration
-\`\`\`bash
+```bash
 python main.py --mode enroll --username "newuser"  # Enroll voice
 python main.py --mode config                       # Configure system
 python main.py --mode test                         # Run diagnostics
-\`\`\`
+```
 
-## Documentation
+---
 
-- **DEVELOPER_OVERRIDE.md** - Complete fail-safe guide, activation process, best practices
-- **SYSTEM_ARCHITECTURE.md** - System design, module interactions, data flow
-- **ALGORITHMS_USED.md** - MFCC, CNN+LSTM, liveness detection math
-- **SECURITY_MODEL.md** - Encryption, threat model, compliance
-- **THREAT_MODEL.md** - Attack analysis, mitigations, security testing
-- **UI_UX_DESIGN.md** - Interface design, color scheme, animations
-- **WINDOWS_INTEGRATION.md** - Windows setup, registry modifications
-- **FUTURE_ENHANCEMENTS.md** - Planned features, research directions
+## 📚 Documentation
+
+<div align="center">
+
+| Document | Description |
+|----------|-------------|
+| **DEVELOPER_OVERRIDE.md** | Complete fail-safe guide, activation process, best practices |
+| **SYSTEM_ARCHITECTURE.md** | System design, module interactions, data flow |
+| **ALGORITHMS_USED.md** | MFCC, CNN+LSTM, liveness detection math |
+| **SECURITY_MODEL.md** | Encryption, threat model, compliance |
+| **THREAT_MODEL.md** | Attack analysis, mitigations, security testing |
+| **UI_UX_DESIGN.md** | Interface design, color scheme, animations |
+| **WINDOWS_INTEGRATION.md** | Windows setup, registry modifications |
+| **FUTURE_ENHANCEMENTS.md** | Planned features, research directions |
+
+</div>
+
+---
 
 ## 📊 Performance Metrics
 
@@ -237,61 +292,75 @@ python main.py --mode test                         # Run diagnostics
 
 </div>
 
-## Security Highlights
+---
 
-- **Zero-Knowledge Voice Storage** - Only encrypted embeddings stored
-- **Liveness Detection** - 90%+ effectiveness against playback attacks
-- **Military-Grade Encryption** - AES-256-GCM for all sensitive data
-- **Audit Trail** - Every access attempt logged and encrypted
-- **Tamper Detection** - HMAC verification of all encrypted data
-- **Emergency Recovery** - Developer fail-safe for system failures
+## 🔒 Security Highlights
 
-## Use Cases
+<div align="center">
 
-- Final-year university capstone projects
-- AI/ML research demonstrations
-- Enterprise security deployments
-- Cybersecurity training and demos
-- Voice biometrics research
-- Pre-login authentication system
-- Government security applications
-- Advanced authentication research
+- 🔐 **Zero-Knowledge Voice Storage** - Only encrypted embeddings stored
+- 🎤 **Liveness Detection** - 90%+ effectiveness against playback attacks
+- 🔒 **Military-Grade Encryption** - AES-256-GCM for all sensitive data
+- 📄 **Audit Trail** - Every access attempt logged and encrypted
+- ⚙️ **Tamper Detection** - HMAC verification of all encrypted data
+- 🆘 **Emergency Recovery** - Developer fail-safe for system failures
 
-## Troubleshooting
+</div>
 
-**"Microphone unavailable"**
-- Check microphone permissions in Windows/Linux
-- Test with `python main.py --mode test`
-- Use developer fail-safe to recover
+---
 
-**"Model failed to load"**
-- Ensure TensorFlow is installed correctly
-- Verify GPU drivers (if using CUDA)
-- Use `python main.py --mode test` for diagnostics
+## 🎯 Use Cases
 
-**"Too many failed attempts"**
-- System locked for 15 minutes
-- Try again after lockout expires
-- Check audit logs in `logs/` directory
+<div align="center">
 
-**"Developer fail-safe issues"**
-- Verify fail-safe secret is correct
-- Check one-time key expiry (15 minutes)
-- Ensure physical key sequence is correct (Ctrl+Alt+F12+D)
-- Run `python main.py --mode check-failsafe-status`
+- 🎓 Final-year university capstone projects
+- 🔬 AI/ML research demonstrations
+- 🏢 Enterprise security deployments
+- 🛡️ Cybersecurity training and demos
+- 🎤 Voice biometrics research
+- 🖥️ Pre-login authentication system
+- 🏛️ Government security applications
+- 🔍 Advanced authentication research
 
-## Compliance & Standards
+</div>
 
-- NIST SP 800-63B (Authentication)
-- ISO/IEC 27001 (Information Security)
-- GDPR Article 32 (Data Protection)
-- FTC Biometric Privacy Standards
+---
 
-## Contributing
+## 🔧 Troubleshooting
 
-Contributions welcome! Please refer to SYSTEM_ARCHITECTURE.md for development guidelines.
+<div align="center">
 
-## License
+| Issue | Solution |
+|-------|----------|
+| **"Microphone unavailable"** | Check microphone permissions, test with `python main.py --mode test`, use developer fail-safe |
+| **"Model failed to load"** | Ensure TensorFlow installed correctly, verify GPU drivers, run diagnostics |
+| **"Too many failed attempts"** | System locked for 15 minutes, try again after lockout expires |
+| **"Developer fail-safe issues"** | Verify secret, check OTK expiry, ensure correct key sequence |
+
+</div>
+
+---
+
+## 📋 Compliance & Standards
+
+<div align="center">
+
+- 🛡️ NIST SP 800-63B (Authentication)
+- 🔒 ISO/IEC 27001 (Information Security)
+- 🛡️ GDPR Article 32 (Data Protection)
+- 📋 FTC Biometric Privacy Standards
+
+</div>
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome! Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+
+---
+
+## 📄 License
 
 ```
 MIT License
@@ -317,7 +386,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Disclaimer
+---
+
+## ⚠️ Disclaimer
 
 This is a research/educational project. For production deployment:
 - Perform security audit with professional pentesting team
@@ -328,18 +399,25 @@ This is a research/educational project. For production deployment:
 
 ---
 
+## 🆕 Recent Updates (v2.1)
+
+<div align="center">
+
+- 🔐 **Enhanced Encryption**: Improved security with master key management system
+- 💾 **Failsafe State**: Encrypted system state preservation for disaster recovery
+- 🤖 **Speaker Model**: Updated AI model with better accuracy and performance
+- 🛡️ **Security Hardening**: Additional layers of protection for sensitive data
+- 📋 **Code of Conduct**: Added community guidelines and contribution standards
+- 📦 **Package Lock**: Added package-lock.json for dependency management
+
+</div>
+
+---
+
+<div align="center">
+
 **Built with ❤️ for final-year projects, research demos, and enterprise security prototypes.**
 
 **Last Updated**: January 2025 | **Version**: 2.1 (Enhanced Security with Master Key & Failsafe State)
-\`\`\`
 
-Now let me create the comprehensive DEVELOPER_OVERRIDE.md file I started earlier (it's already created above in the fail-safe module section). Let me update the SECURITY_MODEL.md to include fail-safe:
-
-## Recent Updates (v2.1)
-
-- **Enhanced Encryption**: Improved security with master key management system
-- **Failsafe State**: Encrypted system state preservation for disaster recovery
-- **Speaker Model**: Updated AI model with better accuracy and performance
-- **Security Hardening**: Additional layers of protection for sensitive data
-- **Code of Conduct**: Added community guidelines and contribution standards
-- **Package Lock**: Added package-lock.json for dependency management
+</div>
